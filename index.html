@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MayorKing Logistic — Mudanzas y Transporte en Barranquilla</title>
+  <meta name="description" content="Mudanza residencial, servicio empresarial, transporte urbano, retiro de escombros, línea blanca y Marketplace en Barranquilla. Cotiza ahora por WhatsApp.">
+  <meta property="og:title" content="MayorKing Logistic — Mudanzas y Transporte en Barranquilla">
+  <meta property="og:description" content="Tu mudanza sin estrés ni sorpresas: mudanzas seguras y a tiempo, transporte de carga local y nacional.">
+  <meta property="og:image" content="assets/img/hero-familia-mudanza.jpg">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#1B3A6B',
+              dark:    '#0F2347',
+              mid:     '#2D5BA3',
+              light:   '#EEF2F9',
+            },
+            gold: {
+              DEFAULT: '#C89A2E',
+              dark:    '#A8821F',
+              warm:    '#D4A935',
+              soft:    '#FBF3DC',
+            },
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans:    ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-sans text-slate-800 antialiased bg-white">
+
+  <!-- Skip link para navegación por teclado -->
+  <a href="#main-content"
+     class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-brand focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold focus:shadow-lg">
+    Ir al contenido principal
+  </a>
+
+  <!-- ── NAVBAR ── -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 shadow-sm">
+    <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+
+      <a href="#hero" class="flex items-center gap-2.5 shrink-0">
+        <span class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center">
+          <i data-lucide="truck" class="w-4 h-4 text-gold"></i>
+        </span>
+        <span class="leading-tight">
+          <span class="block font-display font-bold text-brand text-base leading-none">MayorKing</span>
+          <span class="block text-[10px] font-semibold tracking-[0.18em] text-slate-400 uppercase">Logistic</span>
+        </span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+        <a href="#servicios"         class="hover:text-brand transition-colors">Servicios</a>
+        <a href="#por-que-elegirnos" class="hover:text-brand transition-colors">Nosotros</a>
+        <a href="#como-funciona"     class="hover:text-brand transition-colors">Cómo funciona</a>
+        <a href="#testimonios"       class="hover:text-brand transition-colors">Testimonios</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+573224956349"
+           class="hidden lg:flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-brand transition-colors">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-brand"></i> 322 495 6349
+        </a>
+        <a href="https://wa.me/message/2OT4D4LKJHDZN1" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">WhatsApp</span>
+        </a>
+        <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
+                aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile panel -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-3 space-y-1">
+      <a href="#servicios"         class="block px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-brand-light hover:text-brand transition-colors">Servicios</a>
+      <a href="#por-que-elegirnos" class="block px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-brand-light hover:text-brand transition-colors">Nosotros</a>
+      <a href="#como-funciona"     class="block px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-brand-light hover:text-brand transition-colors">Cómo funciona</a>
+      <a href="#testimonios"       class="block px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-brand-light hover:text-brand transition-colors">Testimonios</a>
+      <a href="tel:+573224956349"  class="block px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-brand-light hover:text-brand transition-colors">+57 322 495 6349</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+  <!-- ── HERO ── -->
+  <section id="hero" class="relative min-h-[92vh] flex items-center bg-cover bg-center"
+           style="background-image: url('assets/img/hero-familia-mudanza.jpg');">
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/97 via-brand/85 to-brand/25"></div>
+    <div class="relative w-full max-w-6xl mx-auto px-4 py-24">
+      <div class="max-w-2xl">
+
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-white/80 text-xs font-medium tracking-wide mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+          Barranquilla & Colombia — Cobertura nacional
+        </div>
+
+        <h1 class="font-display text-4xl md:text-[3.5rem] font-bold leading-[1.08] text-white">
+          Tu mudanza,<br>
+          <span class="text-gold">sin estrés</span><br>
+          ni sorpresas.
+        </h1>
+
+        <p class="mt-6 text-lg text-blue-100 leading-relaxed max-w-lg">
+          Mudanzas residenciales y empresariales, transporte de carga local y nacional. Puntualidad, cuidado y precio justo desde el primer momento.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="https://wa.me/message/2OT4D4LKJHDZN1" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 bg-gold hover:bg-gold-warm text-white font-semibold px-6 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 shadow-lg">
+            <i data-lucide="message-circle" class="w-5 h-5"></i> Cotiza por WhatsApp
+          </a>
+          <a href="#servicios"
+             class="inline-flex items-center gap-2 border-2 border-white/40 text-white hover:bg-white/10 font-semibold px-6 py-3.5 rounded-xl transition-all">
+            Ver servicios <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <div class="mt-10 flex flex-wrap gap-5 text-sm text-blue-100">
+          <span class="flex items-center gap-1.5"><i data-lucide="clock"        class="w-4 h-4 text-gold"></i> Puntuales</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-gold"></i> Sin costos ocultos</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="star"         class="w-4 h-4 text-gold"></i> 5.0 ★ en Google</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="map"          class="w-4 h-4 text-gold"></i> Local y nacional</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS STRIP ── -->
+  <section class="bg-brand-dark text-white">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <p class="font-display text-3xl font-bold text-gold">5.0 ★</p>
+        <p class="mt-1 text-sm text-blue-200">Google Reviews</p>
+      </div>
+      <div>
+        <p class="font-display text-3xl font-bold text-gold">6</p>
+        <p class="mt-1 text-sm text-blue-200">Servicios especializados</p>
+      </div>
+      <div>
+        <p class="font-display text-3xl font-bold text-gold">100%</p>
+        <p class="mt-1 text-sm text-blue-200">Sin costos ocultos</p>
+      </div>
+      <div>
+        <p class="font-display text-3xl font-bold text-gold">Nacional</p>
+        <p class="mt-1 text-sm text-blue-200">Cobertura en Colombia</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICIOS ── -->
+  <section id="servicios" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="text-xs font-semibold tracking-widest uppercase text-gold mb-2">Lo que hacemos</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-brand">Nuestros servicios</h2>
+        <p class="mt-3 text-slate-500 max-w-lg mx-auto">Soluciones de mudanza y transporte para hogares y empresas en Barranquilla y Colombia.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden">
+          <div class="relative overflow-hidden h-44">
+            <img src="assets/img/mudanza-local.jpg" alt="Transportadores cargando muebles en camioneta" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand/60 to-transparent"></div>
+            <span class="absolute bottom-3 left-3 w-9 h-9 bg-white rounded-xl flex items-center justify-center shadow-md">
+              <i data-lucide="home" class="w-4 h-4 text-brand"></i>
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-brand">Mudanza Residencial</h3>
+            <p class="mt-1.5 text-sm text-slate-500 leading-relaxed">Casas y apartamentos dentro de Barranquilla con embalaje profesional incluido.</p>
+            <a href="#cotizar" class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-gold hover:text-gold-dark transition-colors">
+              Cotizar <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden">
+          <div class="relative overflow-hidden h-44">
+            <img src="assets/img/mudanza-empresarial.jpg" alt="Persona cargando caja de oficina" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand/60 to-transparent"></div>
+            <span class="absolute bottom-3 left-3 w-9 h-9 bg-white rounded-xl flex items-center justify-center shadow-md">
+              <i data-lucide="building-2" class="w-4 h-4 text-brand"></i>
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-brand">Servicio Empresarial</h3>
+            <p class="mt-1.5 text-sm text-slate-500 leading-relaxed">Traslado de oficinas, consultorios y equipos con mínima interrupción operativa.</p>
+            <a href="#cotizar" class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-gold hover:text-gold-dark transition-colors">
+              Cotizar <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden">
+          <div class="relative overflow-hidden h-44">
+            <img src="assets/img/carga-nacional.jpg" alt="Camión de carga en carretera" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand/60 to-transparent"></div>
+            <span class="absolute bottom-3 left-3 w-9 h-9 bg-white rounded-xl flex items-center justify-center shadow-md">
+              <i data-lucide="truck" class="w-4 h-4 text-brand"></i>
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-brand">Transporte Urbano Puntual</h3>
+            <p class="mt-1.5 text-sm text-slate-500 leading-relaxed">Mudanzas pequeñas y traslados rápidos dentro de la ciudad, en el horario que necesitas.</p>
+            <a href="#cotizar" class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-gold hover:text-gold-dark transition-colors">
+              Cotizar <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden">
+          <div class="relative overflow-hidden h-44">
+            <img src="assets/img/embalaje.jpg" alt="Cajas apiladas" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand/60 to-transparent"></div>
+            <span class="absolute bottom-3 left-3 w-9 h-9 bg-white rounded-xl flex items-center justify-center shadow-md">
+              <i data-lucide="trash-2" class="w-4 h-4 text-brand"></i>
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-brand">Retiro de Escombros</h3>
+            <p class="mt-1.5 text-sm text-slate-500 leading-relaxed">Recolección y disposición en puntos autorizados de la ciudad.</p>
+            <a href="#cotizar" class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-gold hover:text-gold-dark transition-colors">
+              Cotizar <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden">
+          <div class="relative overflow-hidden h-44">
+            <img src="assets/img/embalaje-pro.jpg" alt="Plástico burbuja para embalaje profesional" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand/60 to-transparent"></div>
+            <span class="absolute bottom-3 left-3 w-9 h-9 bg-white rounded-xl flex items-center justify-center shadow-md">
+              <i data-lucide="refrigerator" class="w-4 h-4 text-brand"></i>
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-brand">Línea Blanca</h3>
+            <p class="mt-1.5 text-sm text-slate-500 leading-relaxed">Recogida y transporte seguro de electrodomésticos y equipos del hogar.</p>
+            <a href="#cotizar" class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-gold hover:text-gold-dark transition-colors">
+              Cotizar <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden">
+          <div class="relative overflow-hidden h-44">
+            <img src="assets/img/marketplace.jpg" alt="Repartidor entregando paquete" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand/60 to-transparent"></div>
+            <span class="absolute bottom-3 left-3 w-9 h-9 bg-white rounded-xl flex items-center justify-center shadow-md">
+              <i data-lucide="shopping-bag" class="w-4 h-4 text-brand"></i>
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-semibold text-brand">Compras por Marketplace</h3>
+            <p class="mt-1.5 text-sm text-slate-500 leading-relaxed">Recogemos y entregamos tus compras de segunda mano en toda la ciudad.</p>
+            <a href="#cotizar" class="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-gold hover:text-gold-dark transition-colors">
+              Cotizar <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── POR QUÉ ELEGIRNOS ── -->
+  <section id="por-que-elegirnos" class="py-20 bg-brand-light">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="text-xs font-semibold tracking-widest uppercase text-gold mb-2">Nuestra promesa</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-brand">Por qué elegirnos</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-11 h-11 bg-gold-soft rounded-xl flex items-center justify-center mb-4">
+            <i data-lucide="clock" class="w-5 h-5 text-gold-dark"></i>
+          </div>
+          <h3 class="font-display font-semibold text-brand text-sm">Puntualidad garantizada</h3>
+          <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Llegamos a la hora acordada, sin excusas. Tu tiempo vale.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-11 h-11 bg-gold-soft rounded-xl flex items-center justify-center mb-4">
+            <i data-lucide="heart-handshake" class="w-5 h-5 text-gold-dark"></i>
+          </div>
+          <h3 class="font-display font-semibold text-brand text-sm">Cuidado real de tus cosas</h3>
+          <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Embalamos y manejamos cada objeto como si fuera nuestro.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-11 h-11 bg-gold-soft rounded-xl flex items-center justify-center mb-4">
+            <i data-lucide="shield-check" class="w-5 h-5 text-gold-dark"></i>
+          </div>
+          <h3 class="font-display font-semibold text-brand text-sm">Sin costos ocultos</h3>
+          <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">La cotización que recibes es exactamente el precio que pagas.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-11 h-11 bg-gold-soft rounded-xl flex items-center justify-center mb-4">
+            <i data-lucide="user-check" class="w-5 h-5 text-gold-dark"></i>
+          </div>
+          <h3 class="font-display font-semibold text-brand text-sm">Atención personalizada</h3>
+          <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Hablamos directo contigo por WhatsApp, sin intermediarios.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-11 h-11 bg-gold-soft rounded-xl flex items-center justify-center mb-4">
+            <i data-lucide="map-pin" class="w-5 h-5 text-gold-dark"></i>
+          </div>
+          <h3 class="font-display font-semibold text-brand text-sm">Raíces en Barranquilla</h3>
+          <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Conocemos la ciudad, las rutas y los tiempos reales.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-11 h-11 bg-gold-soft rounded-xl flex items-center justify-center mb-4">
+            <i data-lucide="route" class="w-5 h-5 text-gold-dark"></i>
+          </div>
+          <h3 class="font-display font-semibold text-brand text-sm">Cobertura nacional</h3>
+          <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Llevamos tu carga a cualquier ciudad de Colombia.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CÓMO FUNCIONA ── -->
+  <section id="como-funciona" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-14">
+        <p class="text-xs font-semibold tracking-widest uppercase text-gold mb-2">Proceso simple</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-brand">Cómo funciona</h2>
+        <p class="mt-3 text-slate-500">Del primer mensaje a la entrega, en 4 pasos.</p>
+      </div>
+
+      <!-- Desktop stepper -->
+      <div class="hidden md:grid grid-cols-4 gap-0 relative">
+        <div class="absolute top-6 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+        <div class="relative z-10 flex flex-col items-center text-center px-4">
+          <div class="w-12 h-12 rounded-full bg-gold text-white flex items-center justify-center font-display font-bold text-lg shadow-lg">1</div>
+          <h3 class="mt-4 font-display font-semibold text-brand">Cotiza</h3>
+          <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Cuéntanos los detalles por WhatsApp o el formulario.</p>
+        </div>
+        <div class="relative z-10 flex flex-col items-center text-center px-4">
+          <div class="w-12 h-12 rounded-full bg-gold text-white flex items-center justify-center font-display font-bold text-lg shadow-lg">2</div>
+          <h3 class="mt-4 font-display font-semibold text-brand">Confirmamos</h3>
+          <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Te enviamos precio claro y agendamos la fecha.</p>
+        </div>
+        <div class="relative z-10 flex flex-col items-center text-center px-4">
+          <div class="w-12 h-12 rounded-full bg-gold text-white flex items-center justify-center font-display font-bold text-lg shadow-lg">3</div>
+          <h3 class="mt-4 font-display font-semibold text-brand">Embalamos</h3>
+          <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Protegemos cada objeto con materiales profesionales.</p>
+        </div>
+        <div class="relative z-10 flex flex-col items-center text-center px-4">
+          <div class="w-12 h-12 rounded-full bg-gold text-white flex items-center justify-center font-display font-bold text-lg shadow-lg">4</div>
+          <h3 class="mt-4 font-display font-semibold text-brand">Entregamos</h3>
+          <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Todo en su lugar, puntual y sin sorpresas.</p>
+        </div>
+      </div>
+
+      <!-- Mobile stepper -->
+      <div class="md:hidden space-y-6">
+        <div class="flex gap-4 items-start">
+          <div class="w-10 h-10 shrink-0 rounded-full bg-gold text-white flex items-center justify-center font-display font-bold shadow-lg">1</div>
+          <div><h3 class="font-display font-semibold text-brand">Cotiza</h3><p class="text-sm text-slate-500 mt-0.5">Cuéntanos los detalles por WhatsApp o el formulario.</p></div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-10 h-10 shrink-0 rounded-full bg-gold text-white flex items-center justify-center font-display font-bold shadow-lg">2</div>
+          <div><h3 class="font-display font-semibold text-brand">Confirmamos</h3><p class="text-sm text-slate-500 mt-0.5">Te enviamos precio claro y agendamos la fecha.</p></div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-10 h-10 shrink-0 rounded-full bg-gold text-white flex items-center justify-center font-display font-bold shadow-lg">3</div>
+          <div><h3 class="font-display font-semibold text-brand">Embalamos</h3><p class="text-sm text-slate-500 mt-0.5">Protegemos cada objeto con materiales profesionales.</p></div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-10 h-10 shrink-0 rounded-full bg-gold text-white flex items-center justify-center font-display font-bold shadow-lg">4</div>
+          <div><h3 class="font-display font-semibold text-brand">Entregamos</h3><p class="text-sm text-slate-500 mt-0.5">Todo en su lugar, puntual y sin sorpresas.</p></div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="https://wa.me/message/2OT4D4LKJHDZN1" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-8 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 shadow-lg">
+          <i data-lucide="message-circle" class="w-5 h-5"></i> Empezar ahora por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FLOTA + EMBALAJE ── -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+
+      <div class="group overflow-hidden rounded-2xl shadow-sm bg-white">
+        <div class="relative h-60 overflow-hidden">
+          <img src="assets/img/carga-nacional.jpg" alt="Flota de camiones MayorKing Logistic" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-brand/70 to-transparent"></div>
+          <span class="absolute bottom-4 left-4 inline-flex items-center gap-1.5 bg-gold text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+            <i data-lucide="truck" class="w-3.5 h-3.5"></i> Nuestra Flota
+          </span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display font-bold text-brand">Vehículos preparados para cada trabajo</h3>
+          <p class="mt-2 text-sm text-slate-500 leading-relaxed">Camiones acondicionados para mudanzas locales y transporte de carga nacional, listos para cualquier tamaño de servicio.</p>
+        </div>
+      </div>
+
+      <div class="group overflow-hidden rounded-2xl shadow-sm bg-white">
+        <div class="relative h-60 overflow-hidden">
+          <img src="assets/img/embalaje-pro.jpg" alt="Embalaje profesional con plástico burbuja" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-brand/70 to-transparent"></div>
+          <span class="absolute bottom-4 left-4 inline-flex items-center gap-1.5 bg-gold text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+            <i data-lucide="package" class="w-3.5 h-3.5"></i> Embalaje Profesional
+          </span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display font-bold text-brand">Cada objeto, protegido al máximo</h3>
+          <p class="mt-2 text-sm text-slate-500 leading-relaxed">Cajas, plástico burbuja y protección adecuada para que cada mueble y objeto delicado llegue en perfecto estado.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIOS ── -->
+  <section id="testimonios" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="text-xs font-semibold tracking-widest uppercase text-gold mb-2">Clientes satisfechos</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-brand">Lo que dicen de nosotros</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-md transition-shadow">
+          <p class="text-gold text-sm tracking-wide" aria-label="5 de 5 estrellas">★★★★★</p>
+          <p class="mt-3 text-slate-700 text-sm leading-relaxed">"Hicieron mi mudanza de El Prado a Villa Country en un solo día, sin un rasguño en los muebles. Súper puntuales."</p>
+          <div class="mt-5 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-brand text-white flex items-center justify-center text-xs font-bold shrink-0">CR</div>
+            <div>
+              <p class="text-sm font-semibold text-brand">Camila Rúa</p>
+              <p class="text-xs text-slate-400">Barranquilla</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-md transition-shadow">
+          <p class="text-gold text-sm tracking-wide" aria-label="5 de 5 estrellas">★★★★★</p>
+          <p class="mt-3 text-slate-700 text-sm leading-relaxed">"Trasladamos toda la oficina un sábado y el lunes ya estábamos operando normal. Excelente coordinación."</p>
+          <div class="mt-5 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-brand text-white flex items-center justify-center text-xs font-bold shrink-0">JC</div>
+            <div>
+              <p class="text-sm font-semibold text-brand">Jorge Char Pérez</p>
+              <p class="text-xs text-slate-400">Barranquilla</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-md transition-shadow">
+          <p class="text-gold text-sm tracking-wide" aria-label="5 de 5 estrellas">★★★★★</p>
+          <p class="mt-3 text-slate-700 text-sm leading-relaxed">"Cotización clara desde el principio, sin sorpresas al final. Los volvería a llamar sin pensarlo."</p>
+          <div class="mt-5 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-brand text-white flex items-center justify-center text-xs font-bold shrink-0">DM</div>
+            <div>
+              <p class="text-sm font-semibold text-brand">Daniela Mendoza</p>
+              <p class="text-xs text-slate-400">Soledad</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST BAND ── -->
+  <section class="bg-brand-light border-y border-brand/10 py-8">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="flex flex-col items-center gap-1.5">
+        <i data-lucide="star" class="w-6 h-6 text-gold"></i>
+        <p class="font-display font-semibold text-brand text-sm">5.0 en Google</p>
+        <p class="text-xs text-slate-500">9 reseñas verificadas</p>
+      </div>
+      <div class="flex flex-col items-center gap-1.5">
+        <i data-lucide="clock" class="w-6 h-6 text-brand"></i>
+        <p class="font-display font-semibold text-brand text-sm">Servicio Puntual</p>
+        <p class="text-xs text-slate-500">Llegamos a la hora acordada</p>
+      </div>
+      <div class="flex flex-col items-center gap-1.5">
+        <i data-lucide="map" class="w-6 h-6 text-brand"></i>
+        <p class="font-display font-semibold text-brand text-sm">Cobertura Nacional</p>
+        <p class="text-xs text-slate-500">Toda Colombia</p>
+      </div>
+      <div class="flex flex-col items-center gap-1.5">
+        <i data-lucide="flag" class="w-6 h-6 text-brand"></i>
+        <p class="font-display font-semibold text-brand text-sm">Empresa Colombiana</p>
+        <p class="text-xs text-slate-500">Barranquilla, ATL</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FORMULARIO COTIZACIÓN ── -->
+  <section id="cotizar" class="relative overflow-hidden py-16 md:py-20">
+
+    <!-- Foto de fondo de la sección completa -->
+    <img src="assets/img/mudanza-local.jpg"
+         alt="Equipo MayorKing Logistic preparando una mudanza"
+         loading="lazy"
+         class="absolute inset-0 w-full h-full object-cover object-center">
+    <div class="absolute inset-0 bg-brand-dark/50"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-start">
+
+      <!-- Card izquierdo: información -->
+      <div class="bg-white rounded-2xl shadow-2xl p-7">
+
+            <p class="text-xs font-semibold tracking-widest uppercase text-gold mb-2">Es gratis y rápido</p>
+            <h2 class="font-display text-2xl md:text-3xl font-bold text-brand leading-snug">
+              Solicita tu cotización ahora
+            </h2>
+            <p class="mt-3 text-slate-500 text-sm leading-relaxed">
+              Selecciona tu servicio, completa los detalles y te respondemos por WhatsApp en minutos.
+            </p>
+
+            <ul class="mt-6 space-y-3 text-sm">
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-gold/15 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3 h-3 text-gold-dark"></i>
+                </span>
+                <span class="text-slate-700">Cotización rápida y gratuita</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-gold/15 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3 h-3 text-gold-dark"></i>
+                </span>
+                <span class="text-slate-700">Sin costos ocultos</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-gold/15 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3 h-3 text-gold-dark"></i>
+                </span>
+                <span class="text-slate-700">Personal responsable y capacitado</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-gold/15 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3 h-3 text-gold-dark"></i>
+                </span>
+                <span class="text-slate-700">Cobertura local y nacional</span>
+              </li>
+            </ul>
+
+      </div>
+
+      <!-- Card derecho: formulario -->
+      <form id="form-cotizacion" class="bg-white rounded-2xl shadow-2xl p-8 space-y-4 w-full" novalidate>
+
+          <!-- Tipo de servicio -->
+          <div>
+            <label for="tipo-servicio" class="block text-xs font-medium text-slate-500 mb-1">
+              Tipo de servicio <span class="text-gold" aria-hidden="true">*</span>
+            </label>
+            <select id="tipo-servicio" name="tipo_servicio" required
+                    class="w-full border border-slate-200 rounded-xl px-4 py-3 bg-white text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand transition">
+              <option value="" disabled selected>Selecciona el tipo de servicio</option>
+              <option>Mudanza residencial</option>
+              <option>Servicio empresarial / traslado de equipos</option>
+              <option>Transporte urbano puntual</option>
+              <option>Retiro de escombros</option>
+              <option>Compra y transporte de línea blanca</option>
+              <option>Compras por Marketplace</option>
+            </select>
+          </div>
+
+          <!-- Datos de contacto (siempre visibles) -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="nombre-cliente" class="block text-xs font-medium text-slate-500 mb-1">
+                Nombre completo <span class="text-gold" aria-hidden="true">*</span>
+              </label>
+              <input type="text" id="nombre-cliente" name="nombre" required
+                     placeholder="Tu nombre" class="mk-input" autocomplete="name">
+            </div>
+            <div>
+              <label for="telefono-cliente" class="block text-xs font-medium text-slate-500 mb-1">
+                WhatsApp / Teléfono <span class="text-gold" aria-hidden="true">*</span>
+              </label>
+              <input type="tel" id="telefono-cliente" name="telefono" required
+                     placeholder="322 495 6349" class="mk-input" autocomplete="tel">
+            </div>
+          </div>
+
+          <!-- Grupo 1: Mudanza residencial -->
+          <div class="grupo-servicio hidden space-y-3" data-servicio="Mudanza residencial">
+            <div>
+              <label for="recogida-res" class="block text-xs font-medium text-slate-500 mb-1">📍 Punto de recogida</label>
+              <input type="text" id="recogida-res" data-label="📍 Punto de recogida" placeholder="Dirección origen" class="mk-input">
+            </div>
+            <div>
+              <label for="entrega-res" class="block text-xs font-medium text-slate-500 mb-1">📍 Punto de entrega</label>
+              <input type="text" id="entrega-res" data-label="📍 Punto de entrega" placeholder="Dirección destino" class="mk-input">
+            </div>
+            <div>
+              <label for="fecha-res" class="block text-xs font-medium text-slate-500 mb-1">📅 Fecha del servicio</label>
+              <input type="date" id="fecha-res" data-label="📅 Fecha del servicio" class="mk-input">
+            </div>
+            <div>
+              <label for="vivienda-res" class="block text-xs font-medium text-slate-500 mb-1">🏢 Tipo de vivienda y piso</label>
+              <input type="text" id="vivienda-res" data-label="🏢 Tipo de vivienda y piso" placeholder="Ej: Apartamento piso 3" class="mk-input">
+            </div>
+            <div>
+              <label for="ascensor-res" class="block text-xs font-medium text-slate-500 mb-1">🛗 ¿Tiene ascensor?</label>
+              <select id="ascensor-res" data-label="🛗 ¿Tiene ascensor?" class="mk-input bg-white">
+                <option value="" disabled selected>Selecciona</option>
+                <option>Sí</option><option>No</option>
+              </select>
+            </div>
+            <div>
+              <label for="cantidad-res" class="block text-xs font-medium text-slate-500 mb-1">📦 Cantidad aproximada de muebles y cajas</label>
+              <input type="text" id="cantidad-res" data-label="📦 Cantidad aproximada de muebles y cajas" placeholder="Ej: 10 cajas, 5 muebles" class="mk-input">
+            </div>
+          </div>
+
+          <!-- Grupo 2: Servicio empresarial -->
+          <div class="grupo-servicio hidden space-y-3" data-servicio="Servicio empresarial / traslado de equipos">
+            <div>
+              <label for="empresa-emp" class="block text-xs font-medium text-slate-500 mb-1">🏢 Nombre de la empresa</label>
+              <input type="text" id="empresa-emp" data-label="🏢 Nombre de la empresa" class="mk-input">
+            </div>
+            <div>
+              <label for="recogida-emp" class="block text-xs font-medium text-slate-500 mb-1">📍 Dirección de recogida</label>
+              <input type="text" id="recogida-emp" data-label="📍 Dirección de recogida" class="mk-input">
+            </div>
+            <div>
+              <label for="entrega-emp" class="block text-xs font-medium text-slate-500 mb-1">📍 Dirección de entrega</label>
+              <input type="text" id="entrega-emp" data-label="📍 Dirección de entrega" class="mk-input">
+            </div>
+            <div>
+              <label for="equipos-emp" class="block text-xs font-medium text-slate-500 mb-1">📦 Tipo de equipos o materiales</label>
+              <input type="text" id="equipos-emp" data-label="📦 Tipo de equipos o materiales" class="mk-input">
+            </div>
+            <div>
+              <label for="volumen-emp" class="block text-xs font-medium text-slate-500 mb-1">⚖️ Cantidad o volumen aproximado</label>
+              <input type="text" id="volumen-emp" data-label="⚖️ Cantidad o volumen aproximado" class="mk-input">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label for="fecha-emp" class="block text-xs font-medium text-slate-500 mb-1">📅 Fecha</label>
+                <input type="date" id="fecha-emp" data-label="📅 Fecha" class="mk-input">
+              </div>
+              <div>
+                <label for="horario-emp" class="block text-xs font-medium text-slate-500 mb-1">🕐 Horario</label>
+                <input type="time" id="horario-emp" data-label="🕐 Horario" class="mk-input">
+              </div>
+            </div>
+          </div>
+
+          <!-- Grupo 3: Transporte urbano puntual -->
+          <div class="grupo-servicio hidden space-y-3" data-servicio="Transporte urbano puntual">
+            <div>
+              <label for="recogida-urb" class="block text-xs font-medium text-slate-500 mb-1">📍 Punto de recogida</label>
+              <input type="text" id="recogida-urb" data-label="📍 Punto de recogida" class="mk-input">
+            </div>
+            <div>
+              <label for="entrega-urb" class="block text-xs font-medium text-slate-500 mb-1">📍 Punto de entrega</label>
+              <input type="text" id="entrega-urb" data-label="📍 Punto de entrega" class="mk-input">
+            </div>
+            <div>
+              <label for="que-urb" class="block text-xs font-medium text-slate-500 mb-1">📦 ¿Qué se va a transportar?</label>
+              <input type="text" id="que-urb" data-label="📦 ¿Qué se va a transportar?" class="mk-input">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label for="fecha-urb" class="block text-xs font-medium text-slate-500 mb-1">📅 Fecha</label>
+                <input type="date" id="fecha-urb" data-label="📅 Fecha" class="mk-input">
+              </div>
+              <div>
+                <label for="hora-urb" class="block text-xs font-medium text-slate-500 mb-1">🕐 Hora</label>
+                <input type="time" id="hora-urb" data-label="🕐 Hora" class="mk-input">
+              </div>
+            </div>
+          </div>
+
+          <!-- Grupo 4: Retiro de escombros -->
+          <div class="grupo-servicio hidden space-y-3" data-servicio="Retiro de escombros">
+            <div>
+              <label for="direccion-esc" class="block text-xs font-medium text-slate-500 mb-1">📍 Dirección del servicio</label>
+              <input type="text" id="direccion-esc" data-label="📍 Dirección del servicio" class="mk-input">
+            </div>
+            <div>
+              <label for="cantidad-esc" class="block text-xs font-medium text-slate-500 mb-1">🗑️ Cantidad aproximada de escombros</label>
+              <input type="text" id="cantidad-esc" data-label="🗑️ Cantidad aproximada de escombros" class="mk-input">
+            </div>
+            <div>
+              <label for="vehiculo-esc" class="block text-xs font-medium text-slate-500 mb-1">🚚 ¿Requiere volqueta o camión?</label>
+              <select id="vehiculo-esc" data-label="🚚 ¿Requiere volqueta o camión?" class="mk-input bg-white">
+                <option value="" disabled selected>Selecciona</option>
+                <option>Volqueta</option><option>Camión</option>
+              </select>
+            </div>
+            <div>
+              <label for="fecha-esc" class="block text-xs font-medium text-slate-500 mb-1">📅 Fecha</label>
+              <input type="date" id="fecha-esc" data-label="📅 Fecha" class="mk-input">
+            </div>
+          </div>
+
+          <!-- Grupo 5: Línea blanca -->
+          <div class="grupo-servicio hidden space-y-3" data-servicio="Compra y transporte de línea blanca">
+            <div>
+              <label for="equipo-lb" class="block text-xs font-medium text-slate-500 mb-1">🛒 ¿Qué equipo vas a comprar?</label>
+              <input type="text" id="equipo-lb" data-label="🛒 ¿Qué equipo vas a comprar?" placeholder="Ej: nevera, lavadora…" class="mk-input">
+            </div>
+            <div>
+              <label for="compra-lb" class="block text-xs font-medium text-slate-500 mb-1">📍 Dirección de compra</label>
+              <input type="text" id="compra-lb" data-label="📍 Dirección de compra" class="mk-input">
+            </div>
+            <div>
+              <label for="entrega-lb" class="block text-xs font-medium text-slate-500 mb-1">📍 Dirección de entrega</label>
+              <input type="text" id="entrega-lb" data-label="📍 Dirección de entrega" class="mk-input">
+            </div>
+            <div>
+              <label for="piso-lb" class="block text-xs font-medium text-slate-500 mb-1">🏢 Piso y ascensor en destino</label>
+              <input type="text" id="piso-lb" data-label="🏢 Piso y ascensor en destino" class="mk-input">
+            </div>
+            <div>
+              <label for="fecha-lb" class="block text-xs font-medium text-slate-500 mb-1">📅 Fecha</label>
+              <input type="date" id="fecha-lb" data-label="📅 Fecha" class="mk-input">
+            </div>
+          </div>
+
+          <!-- Grupo 6: Marketplace -->
+          <div class="grupo-servicio hidden space-y-3" data-servicio="Compras por Marketplace">
+            <div>
+              <label for="vendedor-mp" class="block text-xs font-medium text-slate-500 mb-1">📍 Dirección del vendedor</label>
+              <input type="text" id="vendedor-mp" data-label="📍 Dirección del vendedor" class="mk-input">
+            </div>
+            <div>
+              <label for="entrega-mp" class="block text-xs font-medium text-slate-500 mb-1">📍 Dirección de entrega</label>
+              <input type="text" id="entrega-mp" data-label="📍 Dirección de entrega" class="mk-input">
+            </div>
+            <div>
+              <label for="producto-mp" class="block text-xs font-medium text-slate-500 mb-1">📦 ¿Qué producto es?</label>
+              <input type="text" id="producto-mp" data-label="📦 ¿Qué producto es?" class="mk-input">
+            </div>
+            <div>
+              <label for="tamano-mp" class="block text-xs font-medium text-slate-500 mb-1">⚖️ Tamaño/peso aproximado</label>
+              <input type="text" id="tamano-mp" data-label="⚖️ Tamaño/peso aproximado" class="mk-input">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label for="fecha-mp" class="block text-xs font-medium text-slate-500 mb-1">📅 Fecha</label>
+                <input type="date" id="fecha-mp" data-label="📅 Fecha" class="mk-input">
+              </div>
+              <div>
+                <label for="hora-mp" class="block text-xs font-medium text-slate-500 mb-1">🕐 Hora</label>
+                <input type="time" id="hora-mp" data-label="🕐 Hora" class="mk-input">
+              </div>
+            </div>
+          </div>
+
+          <!-- Mensaje de error -->
+          <div id="form-error" class="hidden rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3"
+               role="alert" aria-live="polite"></div>
+
+          <p class="text-xs text-slate-400"><span class="text-gold">*</span> Campos obligatorios</p>
+
+          <button type="submit" id="btn-cotizar"
+                  class="w-full bg-gold hover:bg-gold-warm text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 shadow-md">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Enviar cotización por WhatsApp</span>
+          </button>
+
+      </form>
+
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ── WhatsApp flotante ── -->
+  <a href="https://wa.me/message/2OT4D4LKJHDZN1" target="_blank" rel="noopener"
+     aria-label="Contactar por WhatsApp"
+     class="fixed right-5 bottom-5 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+  </a>
+
+  <!-- ── FOOTER ── -->
+  <footer class="bg-brand-dark text-slate-300">
+    <div class="max-w-6xl mx-auto px-4 pt-14 pb-8">
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10 text-sm">
+
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <span class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center">
+              <i data-lucide="truck" class="w-4 h-4 text-gold"></i>
+            </span>
+            <div>
+              <p class="font-display font-bold text-white leading-none">MayorKing</p>
+              <p class="text-[10px] tracking-[0.18em] text-slate-400 uppercase">Logistic</p>
+            </div>
+          </div>
+          <p class="text-slate-400 leading-relaxed text-sm">Mudanzas y transporte de carga en Barranquilla y Colombia. Puntualidad, cuidado y precio justo.</p>
+        </div>
+
+        <div>
+          <p class="font-display font-semibold text-white mb-4">Servicios</p>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="#servicios" class="hover:text-white transition-colors">Mudanza residencial</a></li>
+            <li><a href="#servicios" class="hover:text-white transition-colors">Servicio empresarial</a></li>
+            <li><a href="#servicios" class="hover:text-white transition-colors">Transporte urbano puntual</a></li>
+            <li><a href="#servicios" class="hover:text-white transition-colors">Retiro de escombros</a></li>
+            <li><a href="#servicios" class="hover:text-white transition-colors">Línea blanca</a></li>
+            <li><a href="#servicios" class="hover:text-white transition-colors">Compras por Marketplace</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="font-display font-semibold text-white mb-4">Contacto</p>
+          <div class="space-y-2.5 text-slate-400">
+            <a href="tel:+573224956349" class="flex items-center gap-2 hover:text-white transition-colors">
+              <i data-lucide="phone" class="w-4 h-4 shrink-0"></i> +57 322 495 6349
+            </a>
+            <a href="https://wa.me/message/2OT4D4LKJHDZN1" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-white transition-colors">
+              <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i> WhatsApp
+            </a>
+            <a href="https://www.instagram.com/mayorking_logistic/" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-white transition-colors">
+              <i data-lucide="instagram" class="w-4 h-4 shrink-0"></i> @mayorking_logistic
+            </a>
+          </div>
+        </div>
+
+      </div>
+      <div class="border-t border-white/10 mt-10 pt-6 text-center text-xs text-slate-500">
+        © 2026 MayorKing Logistic. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/cotizacion.js"></script>
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
