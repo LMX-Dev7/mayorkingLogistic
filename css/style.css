@@ -207,21 +207,17 @@ a, button, input, select, label { touch-action: manipulation; }
 }
 .brand { display: flex; align-items: center; gap: 11px; }
 .brand-mark {
-  width: 36px; height: 36px;
-  border-radius: 9px;
-  background: var(--ink);
+  width: 38px; height: 42px;
   display: grid;
   place-items: center;
-  position: relative;
 }
-.brand-mark [data-lucide] { width: 17px; height: 17px; color: var(--gold-bright); }
-.brand-mark::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
+.brand-mark img { width: 100%; height: 100%; object-fit: contain; }
+/* En el footer (fondo oscuro) el escudo navy necesita un chip claro detrás */
+.site-footer .brand-mark {
+  width: 42px; height: 42px;
+  background: #fff;
   border-radius: 10px;
-  border: 1px solid rgba(200,154,46,.4);
-  pointer-events: none;
+  padding: 4px;
 }
 .brand-name {
   font-stretch: 115%;
