@@ -1074,7 +1074,16 @@ button:disabled {
   .field-row { grid-template-columns: 1fr; }
   .quote-form { padding: 22px 18px; }
   .hero-ctas .btn { width: 100%; }
-  .hero-photo img { height: 250px; }
-  .tracking-card { position: static; width: 100%; margin-top: 14px; }
+
+  /* Foto detrás de la card, card centrada encima (como en desktop) */
+  .hero-photo img { height: 400px; }
+  .tracking-card {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 16px;
+    margin-inline: auto;
+    width: min(330px, calc(100% - 32px));
+  }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
 }
