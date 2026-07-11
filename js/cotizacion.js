@@ -45,6 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
       telefono.focus();
       return;
     }
+
+    // Solo dígitos, espacios y + ( ) - ; entre 7 y 15 dígitos reales
+    const soloDigitos = telefono.value.replace(/\D/g, '');
+    if (!/^[0-9+\s()\-]+$/.test(telefono.value.trim()) || soloDigitos.length < 7 || soloDigitos.length > 15) {
+      mostrarError('Ingresa un número de teléfono válido (solo números, entre 7 y 15 dígitos).');
+      telefono.classList.add('error');
+      telefono.focus();
+      return;
+    }
     telefono.classList.remove('error');
 
     // Construir mensaje de WhatsApp
@@ -92,14 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loading) {
       btnCotizar.disabled = true;
       btnCotizar.innerHTML = `
-        <svg class="animate-spin w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <svg class="spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
           <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
         </svg>
         <span>Abriendo WhatsApp…</span>`;
     } else {
       btnCotizar.disabled = false;
-      btnCotizar.innerHTML = '<i data-lucide="send" class="w-4 h-4"></i><span>Enviar cotización por WhatsApp</span>';
+      btnCotizar.innerHTML = '<i data-lucide="send"></i><span>Enviar cotización por WhatsApp</span>';
       if (window.lucide) lucide.createIcons();
     }
   }

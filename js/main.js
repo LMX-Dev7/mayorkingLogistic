@@ -41,8 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (!entry.isIntersecting) return;
           navLinks.forEach((link) => {
             const active = link.getAttribute('href') === `#${entry.target.id}`;
-            link.classList.toggle('text-brand', active);
-            link.classList.toggle('font-semibold', active);
+            link.classList.toggle('is-active', active);
           });
         });
       },
