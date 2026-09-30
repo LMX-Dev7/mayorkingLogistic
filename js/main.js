@@ -1,24 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── Menú móvil: toggle panel + icono menu ↔ x ──────────────────────────────
+  // ── Menú móvil: panel + cierre con Escape ──────────────────────────────────
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
 
   if (menuToggle && mobileMenu) {
-    const iconEl = menuToggle.querySelector('[data-lucide]');
-
     function openMenu() {
       mobileMenu.classList.remove('hidden');
       menuToggle.setAttribute('aria-expanded', 'true');
       menuToggle.setAttribute('aria-label', 'Cerrar menú');
-      if (iconEl) { iconEl.setAttribute('data-lucide', 'x'); lucide.createIcons(); }
     }
 
     function closeMenu() {
       mobileMenu.classList.add('hidden');
       menuToggle.setAttribute('aria-expanded', 'false');
       menuToggle.setAttribute('aria-label', 'Abrir menú');
-      if (iconEl) { iconEl.setAttribute('data-lucide', 'menu'); lucide.createIcons(); }
     }
 
     menuToggle.addEventListener('click', () => {
@@ -28,11 +24,29 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenu.querySelectorAll('a').forEach((link) =>
       link.addEventListener('click', closeMenu)
     );
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
+  }
+
+  // ── WhatsApp flotante: se oculta mientras el cotizador está a la vista ─────
+  const waFloat = document.querySelector('.wa-float');
+  const cotizador = document.getElementById('cotizar');
+
+  if (waFloat && cotizador) {
+    new IntersectionObserver(
+      ([entry]) => waFloat.classList.toggle('is-oculto', entry.isIntersecting),
+      { threshold: 0.15 }
+    ).observe(cotizador);
   }
 
   // ── Nav activo por sección visible ─────────────────────────────────────────
   const sections  = document.querySelectorAll('section[id]');
-  const navLinks  = document.querySelectorAll('nav a[href^="#"]');
+  const navLinks  = document.querySelectorAll('.nav-links a[href^="#"]');
 
   if (sections.length && navLinks.length) {
     const observer = new IntersectionObserver(
