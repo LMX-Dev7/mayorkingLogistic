@@ -83,6 +83,7 @@ body {
   color: var(--text);
   background: var(--white);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
   overflow-x: clip;
 }
 img { display: block; max-width: 100%; }
@@ -952,6 +953,19 @@ select.mk-input option { background: var(--ink); color: #fff; }
 .mk-input::-webkit-calendar-picker-indicator { filter: invert(.8); }
 
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field, .field-row > *, .grupo-servicio > *, .quote-form > * { min-width: 0; }
+.mk-input { min-width: 0; max-width: 100%; }
+/* Fecha y hora: Safari en iPhone los pinta con ancho intrínseco y altura 0 si no se normalizan */
+input[type="date"].mk-input,
+input[type="time"].mk-input {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  min-height: 48px;
+  text-align: left;
+}
+input[type="date"].mk-input::-webkit-date-and-time-value,
+input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
 .grupo-servicio { display: grid; gap: 14px; }
 
 .consent {
@@ -1281,4 +1295,18 @@ button:disabled {
   .tc-line::before, .tc-line .icon { animation: none; }
   .js [data-reveal] { transform: none; transition: opacity 200ms linear; transition-delay: 0ms; }
   .btn:active, #btn-cotizar:active, .wa-float:active, .svc-link:active { transform: none; }
+}
+
+@media (max-width: 380px) {
+  .container { padding-inline: 14px; }
+  .nav-inner { gap: 10px; }
+  .nav-actions { gap: 8px; }
+  .nav-cta { padding: 9px 12px; font-size: 13px; }
+  .brand { gap: 8px; }
+  .brand-name { font-size: 15.5px; }
+  .brand-sub { letter-spacing: 0.24em; }
+  #menu-toggle { padding: 7px; }
+  .hero h1 { font-size: 2.25rem; }
+  .hero-eyebrow { flex-wrap: nowrap; align-items: flex-start; border-radius: 18px; font-size: 10.5px; letter-spacing: 0.06em; }
+  .hero-eyebrow .live-dot { flex-shrink: 0; margin-top: 5px; }
 }
