@@ -33,6 +33,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ── Aparición al hacer scroll ──────────────────────────────────────────────
+  // Sin JS o sin IntersectionObserver todo queda visible; con JS se oculta y se revela una vez.
+  const revealSelectors = [
+    '.section-head', '.svc-card', '.track-step', '.track-cta', '.stat', '.why-item',
+    '.review', '.quote-info', '.quote-form', '.footer-grid > *',
+  ];
+  const revealTargets = Array.from(document.querySelectorAll(revealSelectors.join(',')));
+
+  if ('IntersectionObserver' in window && revealTargets.length) {
+    document.documentElement.classList.add('js');
+
+    revealTargets.forEach((el) => {
+      const siblings = Array.from(el.parentElement.children).filter((c) => revealTargets.includes(c));
+      el.style.setProperty('--i', Math.min(siblings.indexOf(el), 5));
+      el.setAttribute('data-reveal', '');
+    });
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          revealObserver.unobserve(el);
+          el.classList.add('is-in');
+          // Al terminar, se libera el elemento para que recupere sus propios hover/transiciones
+          const delay = Number(el.style.getPropertyValue('--i') || 0) * 60;
+          setTimeout(() => {
+            el.removeAttribute('data-reveal');
+            el.classList.remove('is-in');
+            el.style.removeProperty('--i');
+          }, 500 + delay + 100);
+        });
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+    );
+
+    revealTargets.forEach((el) => revealObserver.observe(el));
+  }
+
   // ── WhatsApp flotante: se oculta mientras el cotizador está a la vista ─────
   const waFloat = document.querySelector('.wa-float');
   const cotizador = document.getElementById('cotizar');
