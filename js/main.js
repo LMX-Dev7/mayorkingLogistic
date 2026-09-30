@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Con IntersectionObserver se activan las apariciones y el botón flotante; sin él todo queda visible
+  const hasObserver = 'IntersectionObserver' in window;
+  if (hasObserver) document.documentElement.classList.add('js');
+
   // ── Menú móvil: panel + cierre con Escape ──────────────────────────────────
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -41,9 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
   const revealTargets = Array.from(document.querySelectorAll(revealSelectors.join(',')));
 
-  if ('IntersectionObserver' in window && revealTargets.length) {
-    document.documentElement.classList.add('js');
-
+  if (hasObserver && revealTargets.length) {
     revealTargets.forEach((el) => {
       const siblings = Array.from(el.parentElement.children).filter((c) => revealTargets.includes(c));
       el.style.setProperty('--i', Math.min(siblings.indexOf(el), 5));
@@ -77,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const waFloat = document.querySelector('.wa-float');
   const zonasConCta = ['hero', 'cotizar'].map((id) => document.getElementById(id)).filter(Boolean);
 
-  if (waFloat && zonasConCta.length) {
+  if (hasObserver && waFloat && zonasConCta.length) {
     const visibles = new Set();
     const observer = new IntersectionObserver(
       (entries) => {
@@ -85,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (entry.isIntersecting) visibles.add(entry.target.id);
           else visibles.delete(entry.target.id);
         });
-        waFloat.classList.toggle('is-oculto', visibles.size > 0);
+        waFloat.classList.toggle('is-visible', visibles.size === 0);
       },
       { threshold: 0.15 }
     );

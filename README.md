@@ -10,7 +10,7 @@ Sitio estático (HTML + CSS + JS, sin build) de mudanzas y transporte de carga. 
 - `js/cotizacion.js` — formulario → mensaje de WhatsApp (validación, consentimiento, sanitización).
 - `js/main.js` — menú móvil, nav activo, botón flotante.
 - `assets/` — imágenes WebP, fuentes `.woff2`, logo y licencia de los íconos ([Phosphor Icons](https://phosphoricons.com), MIT, en `assets/icons/LICENSE-phosphor.txt`; los íconos van como SVG inline en `index.html`).txt`).
-- `vercel.json` / `_headers` — cabeceras de seguridad (CSP estricta) y caché para Vercel / Cloudflare. Mantener ambos iguales.
+- `_headers` — cabeceras de seguridad (CSP estricta) y caché para Cloudflare Pages.
 
 ## Probar en local
 

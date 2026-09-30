@@ -37,13 +37,11 @@
 :root {
   /* Color */
   --ink:        #0B1D38;   /* marino profundo: hero, cotizador, footer */
-  --ink-2:      #102A50;   /* paneles sobre ink */
   --ink-3:      #0E2344;
   --navy:       #1B3A6B;   /* marca */
   --navy-soft:  #EAF0F9;
   --gold:       #C89A2E;
   --gold-bright:#E3B341;   /* dorado sobre oscuro */
-  --gold-deep:  #A8821F;
   --gold-text:  #7A5C0F;   /* dorado para texto sobre fondo claro (contraste AA) */
   --paper:      #F6F7F9;
   --white:      #FFFFFF;
@@ -116,14 +114,6 @@ a, button, input, select, label { touch-action: manipulation; }
   font-weight: 760;
   letter-spacing: -0.022em;
   line-height: 1.04;
-}
-
-.mono {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .eyebrow {
@@ -1082,9 +1072,9 @@ button:disabled {
   display: grid;
   place-items: center;
   box-shadow: 0 12px 28px -8px rgba(31,175,84,.6);
-  transition: transform .15s, box-shadow .15s, opacity .2s;
+  transition: transform .15s, box-shadow .15s, opacity .2s, visibility .2s;
 }
-.wa-float.is-oculto { opacity: 0; pointer-events: none; transform: translateY(12px); }
+.js .wa-float:not(.is-visible) { opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(12px); }
 .wa-float .icon { width: 30px; height: 30px; }
 
 /* ── Utilidades que usa el JS ─────────────────────────────────────── */
@@ -1263,12 +1253,6 @@ button:disabled {
 .tc-line::before { transform-origin: left center; animation: tc-progress 1.3s var(--ease-in-out) 0.7s backwards; }
 .tc-line .icon { animation: tc-move 1.3s var(--ease-in-out) 0.7s backwards; }
 
-/* Botón flotante de WhatsApp: aparece una vez, sin tapar la primera lectura */
-@keyframes pop-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-.wa-float { animation: pop-in 450ms var(--ease-out) 1.4s backwards; }
 
 /* Aparición al hacer scroll (JS agrega .js y luego marca .is-in; sin JS todo se ve) */
 .js [data-reveal] {
@@ -1290,7 +1274,7 @@ button:disabled {
 
 /* Reduced motion: sin desplazamientos; se conservan los fundidos cortos */
 @media (prefers-reduced-motion: reduce) {
-  .hero-copy > *, .hero-photo, .wa-float,
+  .hero-copy > *, .hero-photo,
   #mobile-menu:not(.hidden), .grupo-servicio:not(.hidden), #form-error:not(.hidden) { animation: none; }
   .tc-line::before, .tc-line .icon { animation: none; }
   .js [data-reveal] { transform: none; transition: opacity 200ms linear; transition-delay: 0ms; }
