@@ -72,15 +72,24 @@ document.addEventListener('DOMContentLoaded', () => {
     revealTargets.forEach((el) => revealObserver.observe(el));
   }
 
-  // ── WhatsApp flotante: se oculta mientras el cotizador está a la vista ─────
+  // ── WhatsApp flotante: se oculta mientras el hero o el cotizador están a la vista
+  // (ahí ya hay un botón de WhatsApp y el flotante taparía contenido)
   const waFloat = document.querySelector('.wa-float');
-  const cotizador = document.getElementById('cotizar');
+  const zonasConCta = ['hero', 'cotizar'].map((id) => document.getElementById(id)).filter(Boolean);
 
-  if (waFloat && cotizador) {
-    new IntersectionObserver(
-      ([entry]) => waFloat.classList.toggle('is-oculto', entry.isIntersecting),
+  if (waFloat && zonasConCta.length) {
+    const visibles = new Set();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) visibles.add(entry.target.id);
+          else visibles.delete(entry.target.id);
+        });
+        waFloat.classList.toggle('is-oculto', visibles.size > 0);
+      },
       { threshold: 0.15 }
-    ).observe(cotizador);
+    );
+    zonasConCta.forEach((zona) => observer.observe(zona));
   }
 
   // ── Nav activo por sección visible ─────────────────────────────────────────

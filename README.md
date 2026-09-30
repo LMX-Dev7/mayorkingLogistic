@@ -9,7 +9,7 @@ Sitio estático (HTML + CSS + JS, sin build) de mudanzas y transporte de carga. 
 - `css/style.css` — estilos y fuentes autoalojadas.
 - `js/cotizacion.js` — formulario → mensaje de WhatsApp (validación, consentimiento, sanitización).
 - `js/main.js` — menú móvil, nav activo, botón flotante.
-- `assets/` — imágenes WebP, fuentes `.woff2`, logo e íconos 3D (`assets/icons/`, [Fluent Emoji](https://github.com/microsoft/fluentui-emoji) de Microsoft, licencia MIT incluida en `assets/icons/LICENSE-fluent-emoji.txt`).
+- `assets/` — imágenes WebP, fuentes `.woff2`, logo y licencia de los íconos ([Phosphor Icons](https://phosphoricons.com), MIT, en `assets/icons/LICENSE-phosphor.txt`; los íconos van como SVG inline en `index.html`).txt`).
 - `vercel.json` / `_headers` — cabeceras de seguridad (CSP estricta) y caché para Vercel / Cloudflare. Mantener ambos iguales.
 
 ## Probar en local
