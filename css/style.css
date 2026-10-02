@@ -317,6 +317,9 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
 .spinner { width: 16px; height: 16px; flex-shrink: 0; animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* Puntos del carrusel de reseñas: solo móvil */
+.review-dots { display: none; }
+
 /* ── Footer ──────────────────────────────────────────────────────── */
 .site-footer { background: rgba(247,245,240,.72); border-top: 1px solid var(--line); padding: 56px 0 28px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
@@ -378,6 +381,17 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
   body { font-size: 16px; }
   .section { padding: 60px 0; }
   .why-copy { padding: 28px 20px; border-radius: 20px; }
+  /* Reseñas en móvil: una a la vez, se desliza horizontalmente y encaja */
+  .reviews-grid {
+    display: flex; gap: 12px; margin: 0 -20px; padding: 0 20px 4px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  }
+  .reviews-grid::-webkit-scrollbar { display: none; }
+  .review { flex: 0 0 100%; scroll-snap-align: start; scroll-snap-stop: always; }
+  .review-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+  .review-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%; background: #CFCBC2; cursor: pointer; transition: background-color .25s, width .25s var(--ease-out); }
+  .review-dots button.is-active { width: 22px; border-radius: 4px; background: var(--ink); }
   /* Servicios tipo acordeón en móvil: texto siempre visible, la foto se abre al llegar al centro de la pantalla */
   .services-grid { gap: 12px; }
   .js .svc-card { cursor: pointer; }

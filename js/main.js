@@ -91,6 +91,30 @@ document.addEventListener('DOMContentLoaded', () => {
     zonasConCta.forEach((zona) => observer.observe(zona));
   }
 
+  // ── Reseñas en móvil: carrusel con puntos (el desplazamiento y el encaje los hace el CSS)
+  const reviewsGrid = document.querySelector('.reviews-grid');
+  if (reviewsGrid) {
+    const reviews = Array.from(reviewsGrid.children);
+    const dots = document.createElement('div');
+    dots.className = 'review-dots';
+    reviews.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', 'Ver reseña ' + (i + 1) + ' de ' + reviews.length);
+      dot.addEventListener('click', () => reviews[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' }));
+      dots.appendChild(dot);
+    });
+    reviewsGrid.after(dots);
+
+    const marcarPunto = () => {
+      const paso = reviews[0].offsetWidth + 12;
+      const activo = Math.min(reviews.length - 1, Math.max(0, Math.round(reviewsGrid.scrollLeft / paso)));
+      Array.from(dots.children).forEach((d, i) => d.classList.toggle('is-active', i === activo));
+    };
+    reviewsGrid.addEventListener('scroll', marcarPunto, { passive: true });
+    marcarPunto();
+  }
+
   // ── Servicios en móvil (acordeón): la foto se abre al llegar al centro de la pantalla; un toque la abre o cierra
   const movil = window.matchMedia('(max-width: 620px)');
   const svcCards = document.querySelectorAll('.svc-card');
