@@ -378,6 +378,12 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
   body { font-size: 16px; }
   .section { padding: 60px 0; }
   .why-copy { padding: 28px 20px; border-radius: 20px; }
+  /* Banda CTA compacta en móvil */
+  .cta-inner { gap: 14px; padding-top: 24px; padding-bottom: 24px; }
+  .cta-inner h2 { font-size: 20px; }
+  .cta-inner p { margin-top: 4px; font-size: 14px; line-height: 1.45; }
+  .cta-actions { gap: 8px; }
+  .cta-actions .btn { min-height: 40px; padding: 8px 14px; font-size: 14px; }
   /* Pasos sin tarjeta en móvil: lista plana con número a la izquierda */
   .steps { gap: 0; }
   .step { display: grid; grid-template-columns: 40px 1fr; column-gap: 16px; padding: 18px 0; background: none; border: 0; border-radius: 0; border-top: 1px solid var(--line); }
