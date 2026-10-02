@@ -188,19 +188,23 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .why-wrap { display: flex; justify-content: center; }
 /* Card con su foto de fondo difuminada y texto en blanco */
 .why-copy {
+  --r: 24px;
   position: relative; isolation: isolate; overflow: hidden;
   max-width: 680px; text-align: center; padding: 44px 48px;
-  border: 1px solid rgba(255,255,255,.28); border-radius: 24px; background: #0F1318;
+  border: 1px solid rgba(255,255,255,.28); border-radius: var(--r); background: #0F1318;
   box-shadow: 0 18px 50px rgba(28,31,36,.22);
 }
 .why-copy::before {
   content: ""; position: absolute; inset: -24px; z-index: -2;
   background: url(../assets/img/srv-residencial.webp) center / cover no-repeat;
   filter: blur(6px) saturate(1.1);
+  /* El recorte redondeado va en la propia capa: overflow no recorta bien capas con filtro en móvil */
+  -webkit-clip-path: inset(24px round var(--r)); clip-path: inset(24px round var(--r));
 }
 .why-copy::after {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(180deg, rgba(15,19,24,.34), rgba(15,19,24,.52));
+  border-radius: inherit;
 }
 .why-copy h2 { font-size: clamp(28px, 4vw, 38px); color: #fff; }
 .why-copy > p { margin-top: 16px; color: rgba(255,255,255,.9); }
@@ -402,7 +406,7 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
 @media (max-width: 620px) {
   body { font-size: 16px; }
   .section { padding: 60px 0; }
-  .why-copy { padding: 28px 20px; border-radius: 20px; }
+  .why-copy { --r: 20px; padding: 28px 20px; }
   /* Reseñas en móvil: una a la vez, se desliza horizontalmente y encaja */
   .reviews-grid {
     display: flex; gap: 12px; margin: 0 -20px; padding: 0 20px 4px;
