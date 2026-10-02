@@ -389,12 +389,15 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
   .svc-body h3 { font-size: 15px; line-height: 1.25; }
   .svc-body p { margin-top: 6px; font-size: 12.5px; line-height: 1.4; }
   .svc-link { margin-top: 10px; font-size: 13.5px; }
-  /* Banda CTA compacta en móvil */
-  .cta-inner { gap: 14px; padding-top: 24px; padding-bottom: 24px; }
-  .cta-inner h2 { font-size: 20px; }
-  .cta-inner p { margin-top: 4px; font-size: 14px; line-height: 1.45; }
-  .cta-actions { gap: 8px; }
-  .cta-actions .btn { min-height: 40px; padding: 8px 14px; font-size: 14px; }
+  /* Banda CTA delgada en móvil: texto a la izquierda y solo el botón Llamar */
+  .cta-inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 12px; padding-top: 14px; padding-bottom: 14px; }
+  .cta-inner > div:first-child { flex: 1; min-width: 0; }
+  .cta-inner h2 { font-size: 16px; line-height: 1.25; }
+  .cta-inner p { margin-top: 2px; font-size: 12.5px; line-height: 1.35; }
+  .cta-actions { width: auto; }
+  .cta-actions .btn-dark { display: none; }
+  .cta-actions .btn { min-height: 36px; padding: 6px 14px; font-size: 13.5px; }
+  .cta-actions .icon { width: 16px; height: 16px; }
   /* Pasos sin tarjeta en móvil: lista plana con número a la izquierda */
   .steps { gap: 0; }
   .step { display: grid; grid-template-columns: 40px 1fr; column-gap: 16px; padding: 18px 0; background: none; border: 0; border-radius: 0; border-top: 1px solid var(--line); }
@@ -414,8 +417,6 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
   .hero-ctas .btn { width: 100%; }
   .quote-wrap { margin-top: 24px; }
   .steps, .reviews-grid { grid-template-columns: 1fr; }
-  .cta-actions { width: 100%; }
-  .cta-actions .btn { flex: 1; }
   .quote-bar { padding: 20px 16px 22px; }
   .quote-main, .quote-details .grupo-servicio { grid-template-columns: 1fr; }
   .field-row { grid-template-columns: 1fr; }
