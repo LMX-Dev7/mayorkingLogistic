@@ -415,7 +415,11 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
   .hero-points, .hero-ctas { display: none; }
   .hero-ctas { margin-top: 18px; }
   .hero-ctas .btn { width: 100%; }
-  .quote-wrap { margin-top: 44px; }
+  /* Primer pantallazo en móvil: solo titular y subtítulo; el cotizador queda debajo */
+  .hero { padding-top: 0; }
+  .hero-grid { display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 72px); min-height: calc(100svh - 72px); }
+  .hero-photo { height: calc(100vh - 72px); height: calc(100svh - 72px); }
+  .quote-wrap { margin-top: 16px; }
   .steps, .reviews-grid { grid-template-columns: 1fr; }
   .quote-bar { padding: 20px 16px 22px; }
   .quote-main, .quote-details .grupo-servicio { grid-template-columns: 1fr; }
