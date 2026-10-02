@@ -122,16 +122,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function iniciarAcordeon() {
     if (!hasObserver || !svcCards.length) return;
+    // La clase "acc" activa el acordeón en el CSS; si algo falla antes, las fotos quedan visibles
+    document.documentElement.classList.toggle('acc', movil.matches);
     if (movil.matches && !svcObserver) {
       svcObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
+            // Se abre al entrar en el 70% superior de la pantalla, o si un scroll rápido ya la dejó atrás
+            if (!entry.isIntersecting && entry.boundingClientRect.top > 0) return;
             entry.target.classList.add('is-open');
             svcObserver.unobserve(entry.target);
           });
         },
-        { rootMargin: '-35% 0px -35% 0px' }
+        { rootMargin: '0px 0px -30% 0px' }
       );
       svcCards.forEach((card) => svcObserver.observe(card));
     } else if (!movil.matches && svcObserver) {
