@@ -378,6 +378,16 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
   body { font-size: 16px; }
   .section { padding: 60px 0; }
   .why-copy { padding: 28px 20px; border-radius: 20px; }
+  /* Servicios tipo acordeón en móvil: texto siempre visible, la foto se abre al llegar al centro de la pantalla */
+  .services-grid { gap: 12px; }
+  .js .svc-card { cursor: pointer; }
+  .js .svc-body { order: 1; padding: 16px 18px; }
+  .js .svc-body p { flex: none; margin-bottom: 0; }
+  .js .svc-media { order: 2; max-height: 0; padding: 0 10px; overflow: hidden; transition: max-height .55s var(--ease-out), padding .55s var(--ease-out); }
+  .js .svc-card.is-open .svc-media { max-height: 340px; padding: 0 10px 10px; }
+  .js .svc-body h3 { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .js .svc-body h3::after { content: ""; width: 9px; height: 9px; flex-shrink: 0; border-right: 2px solid var(--gold-text); border-bottom: 2px solid var(--gold-text); transform: rotate(45deg); transition: transform .35s var(--ease-out); margin-right: 4px; }
+  .js .svc-card.is-open .svc-body h3::after { transform: rotate(-135deg); }
   /* Banda CTA compacta en móvil */
   .cta-inner { gap: 14px; padding-top: 24px; padding-bottom: 24px; }
   .cta-inner h2 { font-size: 20px; }

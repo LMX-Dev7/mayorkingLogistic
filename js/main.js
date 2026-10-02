@@ -91,6 +91,41 @@ document.addEventListener('DOMContentLoaded', () => {
     zonasConCta.forEach((zona) => observer.observe(zona));
   }
 
+  // ── Servicios en móvil (acordeón): la foto se abre al llegar al centro de la pantalla; un toque la abre o cierra
+  const movil = window.matchMedia('(max-width: 620px)');
+  const svcCards = document.querySelectorAll('.svc-card');
+  let svcObserver = null;
+
+  function iniciarAcordeon() {
+    if (!hasObserver || !svcCards.length) return;
+    if (movil.matches && !svcObserver) {
+      svcObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-open');
+            svcObserver.unobserve(entry.target);
+          });
+        },
+        { rootMargin: '-35% 0px -35% 0px' }
+      );
+      svcCards.forEach((card) => svcObserver.observe(card));
+    } else if (!movil.matches && svcObserver) {
+      svcObserver.disconnect();
+      svcObserver = null;
+    }
+  }
+
+  svcCards.forEach((card) => {
+    card.addEventListener('click', (event) => {
+      if (!movil.matches || event.target.closest('a')) return;
+      card.classList.toggle('is-open');
+      if (svcObserver) svcObserver.unobserve(card);
+    });
+  });
+  movil.addEventListener('change', iniciarAcordeon);
+  iniciarAcordeon();
+
   // ── Nav activo por sección visible ─────────────────────────────────────────
   const sections  = document.querySelectorAll('section[id]');
   const navLinks  = document.querySelectorAll('.nav-links a[href^="#"]');
