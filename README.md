@@ -6,10 +6,10 @@ Sitio estático (HTML + CSS + JS, sin build) de mudanzas y transporte de carga. 
 
 - `index.html` — página única (íconos como sprite SVG inline).
 - `politica-datos.html` — política de tratamiento de datos (Ley 1581 de 2012).
-- `css/style.css` — estilos y fuentes autoalojadas.
+- `css/style.css` — estilos y fuente autoalojada.
 - `js/cotizacion.js` — formulario → mensaje de WhatsApp (validación, consentimiento, sanitización).
 - `js/main.js` — menú móvil, nav activo, botón flotante.
-- `assets/` — imágenes WebP, fuentes `.woff2`, logo y licencia de los íconos ([Phosphor Icons](https://phosphoricons.com), MIT, en `assets/icons/LICENSE-phosphor.txt`; los íconos van como SVG inline en `index.html`).txt`).
+- `assets/` — imágenes WebP, fuentes `.woff2`, logo y licencia de los íconos ([Phosphor Icons](https://phosphoricons.com), MIT, en `assets/icons/LICENSE-phosphor.txt`; los íconos van como SVG inline en `index.html`).
 - `_headers` — cabeceras de seguridad (CSP estricta) y caché para Cloudflare Pages.
 
 ## Probar en local

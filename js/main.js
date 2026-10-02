@@ -39,10 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Aparición al hacer scroll ──────────────────────────────────────────────
   // Sin JS o sin IntersectionObserver todo queda visible; con JS se oculta y se revela una vez.
-  const revealSelectors = [
-    '.section-head', '.svc-card', '.track-step', '.track-cta', '.stat', '.why-item',
-    '.review', '.quote-info', '.quote-form', '.footer-grid > *',
-  ];
+  const revealSelectors = ['.section-head', '.step', '.svc-card', '.review', '.why-photo', '.why-copy', '.quote-info', '.quote-form'];
   const revealTargets = Array.from(document.querySelectorAll(revealSelectors.join(',')));
 
   if (hasObserver && revealTargets.length) {
