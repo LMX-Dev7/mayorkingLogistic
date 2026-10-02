@@ -202,7 +202,21 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .checklist .icon { margin-top: 2px; }
 
 /* ── Banda CTA ───────────────────────────────────────────────────── */
-.cta-band { background: rgba(250,243,227,.72); border-top: 1px solid #EFE2BF; border-bottom: 1px solid #EFE2BF; }
+.cta-band {
+  background-color: #0F2347;
+  background-image:
+    linear-gradient(to right, rgba(232,182,74,.38) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(232,182,74,.38) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.cta-band .cta-inner h2 { color: #fff; }
+.cta-band .cta-inner p { color: rgba(255,255,255,.86); }
+.cta-band .btn-line { background: rgba(255,255,255,.08); color: #fff; border-color: rgba(255,255,255,.6); }
+.cta-band .btn-dark { background: #E8B64A; color: #0F1318; }
+@media (hover: hover) {
+  .cta-band .btn-line:hover { background: rgba(255,255,255,.16); border-color: #fff; }
+  .cta-band .btn-dark:hover { background: #F2C65F; }
+}
 .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 44px; padding-bottom: 44px; }
 .cta-inner h2 { font-size: clamp(24px, 3vw, 30px); }
 .cta-inner p { margin-top: 6px; color: var(--text); }
