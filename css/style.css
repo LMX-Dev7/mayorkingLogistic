@@ -218,27 +218,35 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* ── Servicios ───────────────────────────────────────────────────── */
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+/* Tarjeta: la foto llena todo y el texto va sobre un panel de vidrio con fondo difuminado */
 .svc-card {
-  display: flex; flex-direction: column;
-  background: rgba(255,255,255,.55);
-  -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
-  border: 1px solid rgba(255,255,255,.75); border-radius: var(--radius); overflow: hidden;
-  box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 8px 28px rgba(28,31,36,.08);
-  transition: box-shadow .25s var(--ease-out), transform .25s var(--ease-out), background-color .25s;
+  position: relative; display: block; overflow: hidden;
+  aspect-ratio: 4 / 5; border-radius: 18px; background: #0F1318;
+  box-shadow: 0 10px 30px rgba(28,31,36,.16);
+  transition: box-shadow .25s var(--ease-out), transform .25s var(--ease-out);
 }
-@media (hover: hover) { .svc-card:hover { background: rgba(255,255,255,.72); box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 14px 36px rgba(28,31,36,.13); transform: translateY(-3px); } }
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .svc-card { background: rgba(255,255,255,.92); } }
-.svc-media { padding: 10px 10px 0; }
-.svc-media img { border-radius: 10px; }
-.svc-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.svc-body { display: flex; flex-direction: column; flex: 1; padding: 20px 22px 22px; }
-.svc-body h3 { font-size: 19px; }
-.svc-body p { margin-top: 8px; font-size: 15.5px; color: var(--muted); flex: 1; }
+.svc-media { position: absolute; inset: 0; }
+.svc-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease-out); }
+@media (hover: hover) {
+  .svc-card:hover { box-shadow: 0 16px 40px rgba(28,31,36,.24); transform: translateY(-3px); }
+  .svc-card:hover .svc-media img { transform: scale(1.04); }
+}
+.svc-body {
+  position: absolute; left: 10px; right: 10px; bottom: 10px;
+  display: flex; flex-direction: column; padding: 16px 18px 18px;
+  color: #fff; border-radius: 13px;
+  background: rgba(15,19,24,.40);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,.22);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .svc-body { background: rgba(15,19,24,.82); } }
+.svc-body h3 { font-size: 19px; color: #fff; }
+.svc-body p { margin-top: 6px; font-size: 14.5px; line-height: 1.45; color: rgba(255,255,255,.9); }
 .svc-link {
-  display: inline-flex; align-items: center; gap: 6px; margin-top: 16px;
-  font-weight: 600; font-size: 15px; color: var(--ink); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+  font-weight: 600; font-size: 15px; color: #E8B64A; text-decoration: none;
 }
-.svc-link .icon { width: 18px; height: 18px; color: var(--gold-text); transition: transform .2s var(--ease-out); }
+.svc-link .icon { width: 18px; height: 18px; color: #E8B64A; transition: transform .2s var(--ease-out); }
 @media (hover: hover) { .svc-link:hover { text-decoration: underline; text-underline-offset: 3px; } .svc-link:hover .icon { transform: translateX(3px); } }
 
 /* ── Reseñas ─────────────────────────────────────────────────────── */
@@ -398,12 +406,11 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
   .review-dots button.is-active { width: 22px; border-radius: 4px; background: var(--ink); }
   /* Servicios en móvil: tarjetas en pareja */
   .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .svc-media { padding: 6px 6px 0; }
-  .svc-media img { border-radius: 8px; aspect-ratio: 1 / 1; }
-  .svc-body { padding: 12px 12px 14px; }
-  .svc-body h3 { font-size: 15px; line-height: 1.25; }
-  .svc-body p { margin-top: 6px; font-size: 12.5px; line-height: 1.4; }
-  .svc-link { margin-top: 10px; font-size: 13.5px; }
+  .svc-card { aspect-ratio: 3 / 4.4; border-radius: 14px; }
+  .svc-body { left: 6px; right: 6px; bottom: 6px; padding: 10px 11px 11px; border-radius: 10px; }
+  .svc-body h3 { font-size: 14px; line-height: 1.25; }
+  .svc-body p { margin-top: 4px; font-size: 11.5px; line-height: 1.35; }
+  .svc-link { margin-top: 7px; font-size: 12.5px; }
   /* Banda CTA delgada en móvil: texto a la izquierda y solo el botón Llamar */
   .cta-inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 12px; padding-top: 14px; padding-bottom: 14px; }
   .cta-inner > div:first-child { flex: 1; min-width: 0; }
