@@ -392,16 +392,14 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
   .review-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
   .review-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%; background: #CFCBC2; cursor: pointer; transition: background-color .25s, width .25s var(--ease-out); }
   .review-dots button.is-active { width: 22px; border-radius: 4px; background: var(--ink); }
-  /* Servicios tipo acordeón en móvil: texto siempre visible, la foto se abre al llegar al centro de la pantalla */
-  .services-grid { gap: 12px; }
-  .acc .svc-card { cursor: pointer; }
-  .acc .svc-body { order: 1; padding: 16px 18px; }
-  .acc .svc-body p { flex: none; margin-bottom: 0; }
-  .acc .svc-media { order: 2; max-height: 0; padding: 0 10px; overflow: hidden; transition: max-height .55s var(--ease-out), padding .55s var(--ease-out); }
-  .acc .svc-card.is-open .svc-media { max-height: 340px; padding: 0 10px 10px; }
-  .acc .svc-body h3 { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-  .acc .svc-body h3::after { content: ""; width: 9px; height: 9px; flex-shrink: 0; border-right: 2px solid var(--gold-text); border-bottom: 2px solid var(--gold-text); transform: rotate(45deg); transition: transform .35s var(--ease-out); margin-right: 4px; }
-  .acc .svc-card.is-open .svc-body h3::after { transform: rotate(-135deg); }
+  /* Servicios en móvil: tarjetas en pareja */
+  .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .svc-media { padding: 6px 6px 0; }
+  .svc-media img { border-radius: 8px; aspect-ratio: 1 / 1; }
+  .svc-body { padding: 12px 12px 14px; }
+  .svc-body h3 { font-size: 15px; line-height: 1.25; }
+  .svc-body p { margin-top: 6px; font-size: 12.5px; line-height: 1.4; }
+  .svc-link { margin-top: 10px; font-size: 13.5px; }
   /* Banda CTA compacta en móvil */
   .cta-inner { gap: 14px; padding-top: 24px; padding-bottom: 24px; }
   .cta-inner h2 { font-size: 20px; }
@@ -426,7 +424,7 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
   .hero-ctas { margin-top: 18px; }
   .hero-ctas .btn { width: 100%; }
   .quote-wrap { margin-top: 24px; }
-  .steps, .services-grid, .reviews-grid { grid-template-columns: 1fr; }
+  .steps, .reviews-grid { grid-template-columns: 1fr; }
   .cta-actions { width: 100%; }
   .cta-actions .btn { flex: 1; }
   .quote-bar { padding: 20px 16px 22px; }
