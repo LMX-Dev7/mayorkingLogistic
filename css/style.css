@@ -415,7 +415,7 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
   .hero-points, .hero-ctas { display: none; }
   .hero-ctas { margin-top: 18px; }
   .hero-ctas .btn { width: 100%; }
-  .quote-wrap { margin-top: 24px; }
+  .quote-wrap { margin-top: 44px; }
   .steps, .reviews-grid { grid-template-columns: 1fr; }
   .quote-bar { padding: 20px 16px 22px; }
   .quote-main, .quote-details .grupo-servicio { grid-template-columns: 1fr; }
