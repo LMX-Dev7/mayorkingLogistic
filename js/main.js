@@ -39,10 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Aparición al hacer scroll ──────────────────────────────────────────────
   // Sin JS o sin IntersectionObserver todo queda visible; con JS se oculta y se revela una vez.
-  const revealSelectors = [
-    '.section-head', '.svc-card', '.track-step', '.track-cta', '.stat', '.why-item',
-    '.review', '.quote-info', '.quote-form', '.footer-grid > *',
-  ];
+  const revealSelectors = ['.section-head', '.step', '.svc-card', '.review', '.why-photo', '.why-copy', '.quote-info', '.quote-form'];
   const revealTargets = Array.from(document.querySelectorAll(revealSelectors.join(',')));
 
   if (hasObserver && revealTargets.length) {
@@ -92,6 +89,30 @@ document.addEventListener('DOMContentLoaded', () => {
       { threshold: 0.15 }
     );
     zonasConCta.forEach((zona) => observer.observe(zona));
+  }
+
+  // ── Reseñas en móvil: carrusel con puntos (el desplazamiento y el encaje los hace el CSS)
+  const reviewsGrid = document.querySelector('.reviews-grid');
+  if (reviewsGrid) {
+    const reviews = Array.from(reviewsGrid.children);
+    const dots = document.createElement('div');
+    dots.className = 'review-dots';
+    reviews.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', 'Ver reseña ' + (i + 1) + ' de ' + reviews.length);
+      dot.addEventListener('click', () => reviews[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' }));
+      dots.appendChild(dot);
+    });
+    reviewsGrid.after(dots);
+
+    const marcarPunto = () => {
+      const paso = reviews[0].offsetWidth + 12;
+      const activo = Math.min(reviews.length - 1, Math.max(0, Math.round(reviewsGrid.scrollLeft / paso)));
+      Array.from(dots.children).forEach((d, i) => d.classList.toggle('is-active', i === activo));
+    };
+    reviewsGrid.addEventListener('scroll', marcarPunto, { passive: true });
+    marcarPunto();
   }
 
   // ── Nav activo por sección visible ─────────────────────────────────────────
