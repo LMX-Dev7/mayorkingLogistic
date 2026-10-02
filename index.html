@@ -234,10 +234,10 @@
           Embalamos, cargamos y entregamos a la hora acordada. Cuéntanos qué necesitas y te respondemos por WhatsApp con un precio claro desde el inicio.
         </p>
         <div class="hero-ctas">
-          <a href="#cotizar" class="btn btn-dark btn-lg">Cotizar mi servicio</a>
           <a href="https://wa.me/message/2OT4D4LKJHDZN1" target="_blank" rel="noopener" class="btn btn-wa btn-lg">
             <svg class="icon icon-wa" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg> Escríbenos por WhatsApp
           </a>
+          <a href="#servicios" class="btn btn-line btn-lg">Ver servicios</a>
         </div>
         <ul class="hero-points">
           <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg> Precio cerrado, sin costos ocultos</li>
@@ -249,6 +249,215 @@
       <figure class="hero-photo">
         <img src="assets/img/hero-operacion.webp" alt="Equipo de MayorKing Logistic cargando un camión de mudanza en Barranquilla" width="1200" height="670" fetchpriority="high" decoding="async">
       </figure>
+    </div>
+
+    <div id="cotizar" class="container quote-wrap">
+      <form id="form-cotizacion" class="quote-bar" novalidate>
+        <h2 class="quote-tab">Cotiza tu servicio</h2>
+        <div class="quote-main">
+          <div class="field">
+          <label for="tipo-servicio">Tipo de servicio <span class="req" aria-hidden="true">*</span></label>
+          <select id="tipo-servicio" name="tipo_servicio" required class="mk-input">
+            <option value="" disabled selected>Selecciona el tipo de servicio</option>
+            <option>Mudanza residencial</option>
+            <option>Servicio empresarial / traslado de equipos</option>
+            <option>Transporte urbano puntual</option>
+            <option>Retiro de escombros</option>
+            <option>Compra y transporte de línea blanca</option>
+            <option>Compras por Marketplace</option>
+          </select>
+        </div>
+          <div class="field">
+            <label for="nombre-cliente">Nombre completo <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" maxlength="120" id="nombre-cliente" name="nombre" required placeholder="Tu nombre" class="mk-input" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="telefono-cliente">WhatsApp / Teléfono <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="telefono-cliente" name="telefono" required maxlength="20" inputmode="tel" placeholder="322 495 6349" class="mk-input" autocomplete="tel">
+          </div>
+          <button type="submit" id="btn-cotizar">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-send"/></svg>
+            <span>Enviar cotización por WhatsApp</span>
+          </button>
+        </div>
+
+        <div class="quote-details">
+<!-- Grupo 1: Mudanza residencial -->
+        <div class="grupo-servicio hidden" data-servicio="Mudanza residencial">
+          <div class="field">
+            <label for="recogida-res">Punto de recogida</label>
+            <input type="text" maxlength="120" id="recogida-res" data-label="📍 Punto de recogida" placeholder="Dirección origen" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="entrega-res">Punto de entrega</label>
+            <input type="text" maxlength="120" id="entrega-res" data-label="📍 Punto de entrega" placeholder="Dirección destino" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="fecha-res">Fecha del servicio</label>
+            <input type="date" id="fecha-res" data-label="📅 Fecha del servicio" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="vivienda-res">Tipo de vivienda y piso</label>
+            <input type="text" maxlength="120" id="vivienda-res" data-label="🏢 Tipo de vivienda y piso" placeholder="Ej: Apartamento piso 3" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="ascensor-res">¿Tiene ascensor?</label>
+            <select id="ascensor-res" data-label="🛗 ¿Tiene ascensor?" class="mk-input">
+              <option value="" disabled selected>Selecciona</option>
+              <option>Sí</option><option>No</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cantidad-res">Cantidad aproximada de muebles y cajas</label>
+            <input type="text" maxlength="120" id="cantidad-res" data-label="📦 Cantidad aproximada de muebles y cajas" placeholder="Ej: 10 cajas, 5 muebles" class="mk-input">
+          </div>
+        </div>
+
+        <!-- Grupo 2: Servicio empresarial -->
+        <div class="grupo-servicio hidden" data-servicio="Servicio empresarial / traslado de equipos">
+          <div class="field">
+            <label for="empresa-emp">Nombre de la empresa</label>
+            <input type="text" maxlength="120" id="empresa-emp" data-label="🏢 Nombre de la empresa" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="recogida-emp">Dirección de recogida</label>
+            <input type="text" maxlength="120" id="recogida-emp" data-label="📍 Dirección de recogida" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="entrega-emp">Dirección de entrega</label>
+            <input type="text" maxlength="120" id="entrega-emp" data-label="📍 Dirección de entrega" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="equipos-emp">Tipo de equipos o materiales</label>
+            <input type="text" maxlength="120" id="equipos-emp" data-label="📦 Tipo de equipos o materiales" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="volumen-emp">Cantidad o volumen aproximado</label>
+            <input type="text" maxlength="120" id="volumen-emp" data-label="⚖️ Cantidad o volumen aproximado" class="mk-input">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="fecha-emp">Fecha</label>
+              <input type="date" id="fecha-emp" data-label="📅 Fecha" class="mk-input">
+            </div>
+            <div class="field">
+              <label for="horario-emp">Horario</label>
+              <input type="time" id="horario-emp" data-label="🕐 Horario" class="mk-input">
+            </div>
+          </div>
+        </div>
+
+        <!-- Grupo 3: Transporte urbano puntual -->
+        <div class="grupo-servicio hidden" data-servicio="Transporte urbano puntual">
+          <div class="field">
+            <label for="recogida-urb">Punto de recogida</label>
+            <input type="text" maxlength="120" id="recogida-urb" data-label="📍 Punto de recogida" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="entrega-urb">Punto de entrega</label>
+            <input type="text" maxlength="120" id="entrega-urb" data-label="📍 Punto de entrega" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="que-urb">¿Qué se va a transportar?</label>
+            <input type="text" maxlength="120" id="que-urb" data-label="📦 ¿Qué se va a transportar?" class="mk-input">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="fecha-urb">Fecha</label>
+              <input type="date" id="fecha-urb" data-label="📅 Fecha" class="mk-input">
+            </div>
+            <div class="field">
+              <label for="hora-urb">Hora</label>
+              <input type="time" id="hora-urb" data-label="🕐 Hora" class="mk-input">
+            </div>
+          </div>
+        </div>
+
+        <!-- Grupo 4: Retiro de escombros -->
+        <div class="grupo-servicio hidden" data-servicio="Retiro de escombros">
+          <div class="field">
+            <label for="direccion-esc">Dirección del servicio</label>
+            <input type="text" maxlength="120" id="direccion-esc" data-label="📍 Dirección del servicio" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="cantidad-esc">Cantidad aproximada de escombros</label>
+            <input type="text" maxlength="120" id="cantidad-esc" data-label="🗑️ Cantidad aproximada de escombros" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="vehiculo-esc">¿Requiere volqueta o camión?</label>
+            <select id="vehiculo-esc" data-label="🚚 ¿Requiere volqueta o camión?" class="mk-input">
+              <option value="" disabled selected>Selecciona</option>
+              <option>Volqueta</option><option>Camión</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fecha-esc">Fecha</label>
+            <input type="date" id="fecha-esc" data-label="📅 Fecha" class="mk-input">
+          </div>
+        </div>
+
+        <!-- Grupo 5: Línea blanca -->
+        <div class="grupo-servicio hidden" data-servicio="Compra y transporte de línea blanca">
+          <div class="field">
+            <label for="equipo-lb">¿Qué equipo vas a comprar?</label>
+            <input type="text" maxlength="120" id="equipo-lb" data-label="🛒 ¿Qué equipo vas a comprar?" placeholder="Ej: nevera, lavadora…" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="compra-lb">Dirección de compra</label>
+            <input type="text" maxlength="120" id="compra-lb" data-label="📍 Dirección de compra" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="entrega-lb">Dirección de entrega</label>
+            <input type="text" maxlength="120" id="entrega-lb" data-label="📍 Dirección de entrega" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="piso-lb">Piso y ascensor en destino</label>
+            <input type="text" maxlength="120" id="piso-lb" data-label="🏢 Piso y ascensor en destino" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="fecha-lb">Fecha</label>
+            <input type="date" id="fecha-lb" data-label="📅 Fecha" class="mk-input">
+          </div>
+        </div>
+
+        <!-- Grupo 6: Marketplace -->
+        <div class="grupo-servicio hidden" data-servicio="Compras por Marketplace">
+          <div class="field">
+            <label for="vendedor-mp">Dirección del vendedor</label>
+            <input type="text" maxlength="120" id="vendedor-mp" data-label="📍 Dirección del vendedor" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="entrega-mp">Dirección de entrega</label>
+            <input type="text" maxlength="120" id="entrega-mp" data-label="📍 Dirección de entrega" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="producto-mp">¿Qué producto es?</label>
+            <input type="text" maxlength="120" id="producto-mp" data-label="📦 ¿Qué producto es?" class="mk-input">
+          </div>
+          <div class="field">
+            <label for="tamano-mp">Tamaño / peso aproximado</label>
+            <input type="text" maxlength="120" id="tamano-mp" data-label="⚖️ Tamaño/peso aproximado" class="mk-input">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="fecha-mp">Fecha</label>
+              <input type="date" id="fecha-mp" data-label="📅 Fecha" class="mk-input">
+            </div>
+            <div class="field">
+              <label for="hora-mp">Hora</label>
+              <input type="time" id="hora-mp" data-label="🕐 Hora" class="mk-input">
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" id="acepto-datos" name="acepto_datos" required>
+          <span>Autorizo el tratamiento de mis datos personales para gestionar esta cotización, según la <a href="/politica-datos" target="_blank" rel="noopener">política de tratamiento de datos</a> (Ley 1581 de 2012). <span class="req" aria-hidden="true">*</span></span>
+        </label>
+
+        <div id="form-error" class="hidden" role="alert"></div>
+      </form>
     </div>
   </section>
 
@@ -457,237 +666,6 @@
         </article>
 
       </div>
-    </div>
-  </section>
-
-  <!-- ── COTIZADOR ── -->
-  <section id="cotizar" class="section">
-    <div class="container quote-grid">
-
-      <div class="quote-info">
-        <h2>Cotiza tu servicio</h2>
-        <p>Elige el servicio, completa tus datos y la cotización sale directo a nuestro WhatsApp. Es gratis y sin compromiso.</p>
-
-        <ul class="checklist">
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg> Respondemos en horario laboral</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg> Precio cerrado: lo cotizado es lo que pagas</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg> Cobertura local y nacional</li>
-        </ul>
-
-        <p class="quote-alt">¿Prefieres hablar? Llámanos al <a href="tel:+573224956349">322&nbsp;495&nbsp;6349</a>.</p>
-      </div>
-
-      <form id="form-cotizacion" class="quote-form" novalidate>
-
-        <h3 class="form-title">Solicitud de servicio</h3>
-        <div class="field">
-          <label for="tipo-servicio">Tipo de servicio <span class="req" aria-hidden="true">*</span></label>
-          <select id="tipo-servicio" name="tipo_servicio" required class="mk-input">
-            <option value="" disabled selected>Selecciona el tipo de servicio</option>
-            <option>Mudanza residencial</option>
-            <option>Servicio empresarial / traslado de equipos</option>
-            <option>Transporte urbano puntual</option>
-            <option>Retiro de escombros</option>
-            <option>Compra y transporte de línea blanca</option>
-            <option>Compras por Marketplace</option>
-          </select>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label for="nombre-cliente">Nombre completo <span class="req" aria-hidden="true">*</span></label>
-            <input type="text" maxlength="120" id="nombre-cliente" name="nombre" required placeholder="Tu nombre" class="mk-input" autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="telefono-cliente">WhatsApp / Teléfono <span class="req" aria-hidden="true">*</span></label>
-            <input type="tel" id="telefono-cliente" name="telefono" required maxlength="20" inputmode="tel" placeholder="322 495 6349" class="mk-input" autocomplete="tel">
-          </div>
-        </div>
-
-        <!-- Grupo 1: Mudanza residencial -->
-        <div class="grupo-servicio hidden" data-servicio="Mudanza residencial">
-          <div class="field">
-            <label for="recogida-res">Punto de recogida</label>
-            <input type="text" maxlength="120" id="recogida-res" data-label="📍 Punto de recogida" placeholder="Dirección origen" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="entrega-res">Punto de entrega</label>
-            <input type="text" maxlength="120" id="entrega-res" data-label="📍 Punto de entrega" placeholder="Dirección destino" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="fecha-res">Fecha del servicio</label>
-            <input type="date" id="fecha-res" data-label="📅 Fecha del servicio" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="vivienda-res">Tipo de vivienda y piso</label>
-            <input type="text" maxlength="120" id="vivienda-res" data-label="🏢 Tipo de vivienda y piso" placeholder="Ej: Apartamento piso 3" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="ascensor-res">¿Tiene ascensor?</label>
-            <select id="ascensor-res" data-label="🛗 ¿Tiene ascensor?" class="mk-input">
-              <option value="" disabled selected>Selecciona</option>
-              <option>Sí</option><option>No</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="cantidad-res">Cantidad aproximada de muebles y cajas</label>
-            <input type="text" maxlength="120" id="cantidad-res" data-label="📦 Cantidad aproximada de muebles y cajas" placeholder="Ej: 10 cajas, 5 muebles" class="mk-input">
-          </div>
-        </div>
-
-        <!-- Grupo 2: Servicio empresarial -->
-        <div class="grupo-servicio hidden" data-servicio="Servicio empresarial / traslado de equipos">
-          <div class="field">
-            <label for="empresa-emp">Nombre de la empresa</label>
-            <input type="text" maxlength="120" id="empresa-emp" data-label="🏢 Nombre de la empresa" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="recogida-emp">Dirección de recogida</label>
-            <input type="text" maxlength="120" id="recogida-emp" data-label="📍 Dirección de recogida" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="entrega-emp">Dirección de entrega</label>
-            <input type="text" maxlength="120" id="entrega-emp" data-label="📍 Dirección de entrega" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="equipos-emp">Tipo de equipos o materiales</label>
-            <input type="text" maxlength="120" id="equipos-emp" data-label="📦 Tipo de equipos o materiales" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="volumen-emp">Cantidad o volumen aproximado</label>
-            <input type="text" maxlength="120" id="volumen-emp" data-label="⚖️ Cantidad o volumen aproximado" class="mk-input">
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="fecha-emp">Fecha</label>
-              <input type="date" id="fecha-emp" data-label="📅 Fecha" class="mk-input">
-            </div>
-            <div class="field">
-              <label for="horario-emp">Horario</label>
-              <input type="time" id="horario-emp" data-label="🕐 Horario" class="mk-input">
-            </div>
-          </div>
-        </div>
-
-        <!-- Grupo 3: Transporte urbano puntual -->
-        <div class="grupo-servicio hidden" data-servicio="Transporte urbano puntual">
-          <div class="field">
-            <label for="recogida-urb">Punto de recogida</label>
-            <input type="text" maxlength="120" id="recogida-urb" data-label="📍 Punto de recogida" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="entrega-urb">Punto de entrega</label>
-            <input type="text" maxlength="120" id="entrega-urb" data-label="📍 Punto de entrega" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="que-urb">¿Qué se va a transportar?</label>
-            <input type="text" maxlength="120" id="que-urb" data-label="📦 ¿Qué se va a transportar?" class="mk-input">
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="fecha-urb">Fecha</label>
-              <input type="date" id="fecha-urb" data-label="📅 Fecha" class="mk-input">
-            </div>
-            <div class="field">
-              <label for="hora-urb">Hora</label>
-              <input type="time" id="hora-urb" data-label="🕐 Hora" class="mk-input">
-            </div>
-          </div>
-        </div>
-
-        <!-- Grupo 4: Retiro de escombros -->
-        <div class="grupo-servicio hidden" data-servicio="Retiro de escombros">
-          <div class="field">
-            <label for="direccion-esc">Dirección del servicio</label>
-            <input type="text" maxlength="120" id="direccion-esc" data-label="📍 Dirección del servicio" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="cantidad-esc">Cantidad aproximada de escombros</label>
-            <input type="text" maxlength="120" id="cantidad-esc" data-label="🗑️ Cantidad aproximada de escombros" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="vehiculo-esc">¿Requiere volqueta o camión?</label>
-            <select id="vehiculo-esc" data-label="🚚 ¿Requiere volqueta o camión?" class="mk-input">
-              <option value="" disabled selected>Selecciona</option>
-              <option>Volqueta</option><option>Camión</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="fecha-esc">Fecha</label>
-            <input type="date" id="fecha-esc" data-label="📅 Fecha" class="mk-input">
-          </div>
-        </div>
-
-        <!-- Grupo 5: Línea blanca -->
-        <div class="grupo-servicio hidden" data-servicio="Compra y transporte de línea blanca">
-          <div class="field">
-            <label for="equipo-lb">¿Qué equipo vas a comprar?</label>
-            <input type="text" maxlength="120" id="equipo-lb" data-label="🛒 ¿Qué equipo vas a comprar?" placeholder="Ej: nevera, lavadora…" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="compra-lb">Dirección de compra</label>
-            <input type="text" maxlength="120" id="compra-lb" data-label="📍 Dirección de compra" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="entrega-lb">Dirección de entrega</label>
-            <input type="text" maxlength="120" id="entrega-lb" data-label="📍 Dirección de entrega" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="piso-lb">Piso y ascensor en destino</label>
-            <input type="text" maxlength="120" id="piso-lb" data-label="🏢 Piso y ascensor en destino" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="fecha-lb">Fecha</label>
-            <input type="date" id="fecha-lb" data-label="📅 Fecha" class="mk-input">
-          </div>
-        </div>
-
-        <!-- Grupo 6: Marketplace -->
-        <div class="grupo-servicio hidden" data-servicio="Compras por Marketplace">
-          <div class="field">
-            <label for="vendedor-mp">Dirección del vendedor</label>
-            <input type="text" maxlength="120" id="vendedor-mp" data-label="📍 Dirección del vendedor" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="entrega-mp">Dirección de entrega</label>
-            <input type="text" maxlength="120" id="entrega-mp" data-label="📍 Dirección de entrega" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="producto-mp">¿Qué producto es?</label>
-            <input type="text" maxlength="120" id="producto-mp" data-label="📦 ¿Qué producto es?" class="mk-input">
-          </div>
-          <div class="field">
-            <label for="tamano-mp">Tamaño / peso aproximado</label>
-            <input type="text" maxlength="120" id="tamano-mp" data-label="⚖️ Tamaño/peso aproximado" class="mk-input">
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="fecha-mp">Fecha</label>
-              <input type="date" id="fecha-mp" data-label="📅 Fecha" class="mk-input">
-            </div>
-            <div class="field">
-              <label for="hora-mp">Hora</label>
-              <input type="time" id="hora-mp" data-label="🕐 Hora" class="mk-input">
-            </div>
-          </div>
-        </div>
-
-        <label class="consent">
-          <input type="checkbox" id="acepto-datos" name="acepto_datos" required>
-          <span>Autorizo el tratamiento de mis datos personales para gestionar esta cotización, según la <a href="/politica-datos" target="_blank" rel="noopener">política de tratamiento de datos</a> (Ley 1581 de 2012). <span class="req" aria-hidden="true">*</span></span>
-        </label>
-
-        <div id="form-error" class="hidden" role="alert"></div>
-
-        <p class="form-note"><span class="req">*</span> Campos obligatorios. Con el barrio o la zona basta; no necesitamos la dirección exacta para cotizar.</p>
-
-        <button type="submit" id="btn-cotizar">
-          <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-send"/></svg>
-          <span>Enviar cotización por WhatsApp</span>
-        </button>
-
-      </form>
-
     </div>
   </section>
 
