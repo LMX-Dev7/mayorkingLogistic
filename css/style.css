@@ -202,13 +202,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .checklist .icon { margin-top: 2px; }
 
 /* ── Banda CTA ───────────────────────────────────────────────────── */
-.cta-band {
-  background-color: #0F2347;
-  background-image:
-    linear-gradient(to right, rgba(232,182,74,.38) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(232,182,74,.38) 1px, transparent 1px);
-  background-size: 36px 36px;
-}
+.cta-band { background: rgba(15,35,71,.88); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
 .cta-band .cta-inner h2 { color: #fff; }
 .cta-band .cta-inner p { color: rgba(255,255,255,.86); }
 .cta-band .btn-line { background: rgba(255,255,255,.08); color: #fff; border-color: rgba(255,255,255,.6); }
