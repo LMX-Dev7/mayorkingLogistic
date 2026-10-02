@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <span>Abriendo WhatsApp…</span>`;
     } else {
       btnCotizar.disabled = false;
-      btnCotizar.innerHTML = '<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-send"/></svg><span>Enviar cotización por WhatsApp</span>';
+      btnCotizar.innerHTML = '<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-send"/></svg><span>Abrir WhatsApp con mis datos</span>';
     }
   }
 });
