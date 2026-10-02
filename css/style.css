@@ -192,12 +192,26 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* ── Servicios ───────────────────────────────────────────────────── */
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+/* Fondo con color suave detrás del vidrio de las tarjetas */
+.services {
+  background:
+    radial-gradient(620px 420px at 6% 30%, rgba(184,135,43,.34), transparent 70%),
+    radial-gradient(640px 440px at 94% 62%, rgba(28,31,36,.18), transparent 70%),
+    radial-gradient(480px 320px at 40% 100%, rgba(184,135,43,.28), transparent 70%),
+    var(--soft);
+}
 .svc-card {
   display: flex; flex-direction: column;
-  background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
-  transition: box-shadow .25s var(--ease-out), transform .25s var(--ease-out);
+  background: rgba(255,255,255,.55);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,.75); border-radius: var(--radius); overflow: hidden;
+  box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 8px 28px rgba(28,31,36,.08);
+  transition: box-shadow .25s var(--ease-out), transform .25s var(--ease-out), background-color .25s;
 }
-@media (hover: hover) { .svc-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); } }
+@media (hover: hover) { .svc-card:hover { background: rgba(255,255,255,.72); box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 14px 36px rgba(28,31,36,.13); transform: translateY(-3px); } }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .svc-card { background: rgba(255,255,255,.92); } }
+.svc-media { padding: 10px 10px 0; }
+.svc-media img { border-radius: 10px; }
 .svc-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 .svc-body { display: flex; flex-direction: column; flex: 1; padding: 20px 22px 22px; }
 .svc-body h3 { font-size: 19px; }
