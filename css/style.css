@@ -170,11 +170,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .step p { margin-top: 8px; font-size: 15.5px; color: var(--muted); }
 
 /* ── Por qué elegirnos ───────────────────────────────────────────── */
-.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-.why-photo { margin: 0; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); }
-.why-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.why { position: relative; isolation: isolate; overflow: hidden; background: var(--soft); }
+.why-photo { position: absolute; inset: 0; z-index: -1; margin: 0; }
+.why-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.why-photo::after { content: ""; position: absolute; inset: 0; background: rgba(255,255,255,.82); }
+.why-wrap { display: flex; justify-content: center; }
+.why-copy { max-width: 640px; text-align: center; }
 .why-copy h2 { font-size: clamp(28px, 4vw, 38px); }
 .why-copy > p { margin-top: 16px; color: var(--text); }
+.why-copy .checklist { justify-content: center; justify-items: start; text-align: left; width: fit-content; margin-left: auto; margin-right: auto; }
 .checklist { margin-top: 24px; display: grid; gap: 12px; }
 .checklist li { display: flex; align-items: flex-start; gap: 12px; color: var(--ink); font-weight: 500; font-size: 16px; }
 .checklist .icon { margin-top: 2px; }
@@ -329,7 +333,7 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
   .nav-links, .nav-call { display: none; }
   #menu-toggle { display: inline-flex; }
   #mobile-menu:not(.hidden) { display: flex; }
-  .why-grid { grid-template-columns: 1fr; gap: 36px; }
+
   .hero-photo { width: 100%; }
   .hero-photo img { opacity: .28; -webkit-mask-image: none; mask-image: none; }
   .quote-main { grid-template-columns: 1fr 1fr; }
