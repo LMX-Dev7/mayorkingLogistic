@@ -50,8 +50,8 @@ body {
 body::before {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(96,104,118,.16) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(96,104,118,.16) 1px, transparent 1px);
+    linear-gradient(to right, rgba(96,104,118,.10) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(96,104,118,.10) 1px, transparent 1px);
   background-size: 44px 44px;
 }
 img { max-width: 100%; height: auto; display: block; }
@@ -141,7 +141,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .section-head p { margin-top: 12px; color: var(--muted); }
 
 /* ── Hero ────────────────────────────────────────────────────────── */
-.hero { position: relative; isolation: isolate; overflow: hidden; padding: 44px 0 44px; }
+.hero { position: relative; isolation: isolate; overflow: hidden; padding: 44px 0 44px; background: #fff; }
 .hero > .container { position: relative; z-index: 1; }
 .hero-grid { display: block; }
 .hero-copy { max-width: 560px; }
