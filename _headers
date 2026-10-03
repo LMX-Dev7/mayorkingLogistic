@@ -13,3 +13,10 @@
 
 /js/*
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# Las copias en *.pages.dev (producción y vistas previas) no se indexan: solo el dominio propio
+https://mayorkinglogistic.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://*.mayorkinglogistic.pages.dev/*
+  X-Robots-Tag: noindex
