@@ -24,7 +24,7 @@
   --gold:      #B8872B;   /* acento (logo) */
   --gold-soft: #FAF3E3;
   --gold-text: #7D5A10;   /* dorado como texto sobre claro (AA) */
-  --wa:        #178A45;   /* verde WhatsApp con contraste AA bajo texto blanco */
+  --wa:        #15803D;   /* verde WhatsApp con contraste AA bajo texto blanco */
   --danger:    #C93A3F;
 
   --radius: 14px;
@@ -95,7 +95,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (hover: hover) {
   .btn-dark:hover { background: #343A43; }
   .btn-line:hover { border-color: var(--ink); }
-  .btn-wa:hover { background: #12733A; }
+  .btn-wa:hover { background: #116B33; }
 }
 
 /* ── Header ──────────────────────────────────────────────────────── */
@@ -338,7 +338,7 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
 }
 #btn-cotizar:active { transform: scale(.98); }
 #btn-cotizar:disabled { opacity: .75; cursor: progress; }
-@media (hover: hover) { #btn-cotizar:not(:disabled):hover { background: #12733A; } }
+@media (hover: hover) { #btn-cotizar:not(:disabled):hover { background: #116B33; } }
 .spinner { width: 16px; height: 16px; flex-shrink: 0; animation: spin 1s linear infinite; }
 @keyframes hero-bounce { 0%, 100% { translate: 0 0; } 50% { translate: 0 6px; } }
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -426,8 +426,10 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
   .reviews-grid::-webkit-scrollbar { display: none; }
   .review { flex: 0 0 100%; scroll-snap-align: start; scroll-snap-stop: always; }
   .review-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
-  .review-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%; background: #CFCBC2; cursor: pointer; transition: background-color .25s, width .25s var(--ease-out); }
-  .review-dots button.is-active { width: 22px; border-radius: 4px; background: var(--ink); }
+  .review-dots { gap: 0; }
+  .review-dots button { position: relative; width: 28px; height: 28px; padding: 0; border: 0; background: none; cursor: pointer; }
+  .review-dots button::before { content: ""; position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #CFCBC2; transition: background-color .25s, width .25s var(--ease-out), margin .25s var(--ease-out); }
+  .review-dots button.is-active::before { width: 22px; margin-left: -11px; border-radius: 4px; background: var(--ink); }
   /* Servicios en móvil: tarjetas en pareja */
   .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .svc-card { aspect-ratio: 3 / 4.4; border-radius: 14px; }

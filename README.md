@@ -22,8 +22,12 @@ npx serve .
 
 ## Reglas al editar
 
-- Sin recursos externos: la CSP solo permite `'self'`. No agregar CDNs, fuentes remotas, scripts ni estilos inline (los atributos `style` y las etiquetas `<style>` quedan bloqueados).
-- Las imágenes nuevas van en WebP (servicios 800 px de ancho, hero 1200 px) con `width` y `height`.
+- Sin recursos externos: la CSP solo permite `'self'`, salvo la analítica propia de Cloudflare (`static.cloudflareinsights.com`), que Pages inyecta. No agregar CDNs, fuentes remotas, scripts ni estilos inline (los atributos `style` y las etiquetas `<style>` quedan bloqueados).
+- Las imágenes nuevas van en WebP con `width` y `height`, y con una variante pequeña en `srcset` (servicios 800 y 480 px; hero 1200 y 800 px).
 - Al cambiar `css/` o `js/`, sube el número de versión (`?v=`) en los enlaces de los HTML para que el celular no use archivos viejos en caché.
 - Si cambias una imagen o fuente conservando el nombre, la caché (7 días) puede tardar en actualizarse: usa un nombre nuevo.
 - Mantén `sitemap.xml` (`lastmod`) al día cuando cambie el contenido.
+
+## Publicar
+
+El proyecto de Cloudflare Pages `mayorkinglogistic` **no está conectado a git**: el merge a `main` no publica. Se despliega con `npx wrangler pages deploy` desde una carpeta que solo contenga los archivos del sitio (sin README ni `.git`), con `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID` definidos solo para esa ejecución.
