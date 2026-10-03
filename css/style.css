@@ -460,6 +460,9 @@ input[type="time"].mk-input::-webkit-date-and-time-value { text-align: left; }
   .hero-points, .hero-ctas { display: none; }
   .hero-ctas { margin-top: 18px; }
   .hero-ctas .btn { width: 100%; }
+  /* Formulario en móvil: el botón de enviar va al final, después de los campos del servicio y el consentimiento */
+  .quote-main { display: contents; }
+  #btn-cotizar { order: 1; }
   /* Primer pantallazo en móvil: solo titular y subtítulo; el cotizador queda debajo */
   .hero { padding-top: 0; }
   .hero-grid { position: relative; display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 72px); min-height: calc(100svh - 72px); }
